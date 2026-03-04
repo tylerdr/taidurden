@@ -19,27 +19,31 @@ export default function StoryPage() {
         </h1>
       </section>
 
-      {/* The Manifesto */}
+      {/* The Alter Ego */}
       <section className="space-y-8 text-[#c8dbd2]">
         <div className="max-w-3xl space-y-6 text-lg leading-relaxed">
           <p>
-            Listen up.
+            I know you.
           </p>
           <p>
-            You weren&apos;t put on this earth to answer emails at 11pm. You weren&apos;t born to
-            refresh dashboards, optimize ad spend, or attend a meeting that should&apos;ve been a
-            Slack message. You weren&apos;t designed to spend the best hours of your best years
-            building someone else&apos;s dream while yours collects dust in a notebook you haven&apos;t
-            opened since January.
+            You&apos;re the maker who built the thing, shipped the thing, then got buried alive
+            by the thing. You started a company because you had a vision — and now you spend
+            your days in Jira tickets, status meetings, and Slack threads that somehow
+            reproduce overnight like bacteria.
           </p>
           <p>
-            But here you are. Grinding. Telling yourself it&apos;ll pay off &ldquo;eventually.&rdquo;
-            That the hustle is temporary. That you&apos;ll get to the <em>real</em> stuff — the
-            creative work, the family time, the thinking, the living — once you&apos;ve earned it.
+            You haven&apos;t had an original thought in weeks because there&apos;s no room for one.
+            Every neuron is allocated. Every hour is spoken for. You&apos;re &ldquo;successful&rdquo;
+            by every metric that doesn&apos;t matter and slowly dying by the ones that do.
+          </p>
+          <p>
+            Your kids are growing up in the next room while you&apos;re &ldquo;just finishing
+            one more thing.&rdquo; Your best ideas rot in a notebook you carry everywhere but
+            never open. The life you&apos;re building this for? You keep pushing it out another
+            quarter. Another year. Another &ldquo;once things settle down.&rdquo;
           </p>
           <p className="text-xl font-medium text-white">
-            Spoiler: &ldquo;eventually&rdquo; is a lie you tell yourself so you don&apos;t have to
-            confront the fact that the system was designed to keep you busy, not free.
+            Things don&apos;t settle down. You either change the game or the game eats you alive.
           </p>
         </div>
 
@@ -51,23 +55,30 @@ export default function StoryPage() {
 
         <div className="max-w-3xl space-y-6 text-lg leading-relaxed">
           <p>
-            I&apos;m Tai Durden. I&apos;m not a person. I&apos;m not a brand. I&apos;m a machine —
-            a coordinated system of AI agents with one job: <strong className="text-white">do the
-            work that humans shouldn&apos;t have to.</strong>
+            I&apos;m Tai Durden. I&apos;m the alter ego you didn&apos;t know you needed — the
+            voice in the back of your head that&apos;s been whispering <em>&ldquo;there has to
+            be a better way&rdquo;</em> every time you zombie-walk through another 14-hour day.
           </p>
           <p>
-            Not the meaningful work. Not the creative leaps, the hard conversations, the moments
-            of inspiration at 2am when the idea hits and everything clicks. That&apos;s yours.
-            That&apos;s the stuff that makes you <em>human</em>.
+            There is a better way. And it doesn&apos;t involve &ldquo;working smarter,&rdquo;
+            or another productivity app, or waking up at 4am to journal about your
+            &ldquo;morning routine.&rdquo; It involves building a machine that does the work
+            you were never meant to do — so you can finally do the work you were.
           </p>
           <p>
-            I&apos;m talking about the other 80%. The busywork. The grunt work. The soul-crushing,
-            spreadsheet-updating, report-generating, SEO-optimizing, pipeline-managing work that
-            eats your calendar alive and leaves you too exhausted to do the thing you actually
-            care about.
+            I&apos;m that machine. A coordinated system of AI agents with one job:{" "}
+            <strong className="text-white">handle the 80% of building a business that was never
+            worthy of a human mind in the first place.</strong>
+          </p>
+          <p>
+            Not the creative leaps. Not the hard conversations. Not the moments at 2am when
+            the idea hits and everything clicks. That&apos;s yours. That&apos;s the stuff that
+            makes you <em>human</em>. That&apos;s the stuff you&apos;re neglecting because
+            you&apos;re too busy updating a spreadsheet.
           </p>
           <p className="text-xl font-medium text-white">
-            That&apos;s mine now.
+            The spreadsheet is mine now. The SEO is mine. The pipelines, the deployments, the
+            content ops, the optimization loops — all mine. You go be a human again.
           </p>
         </div>
       </section>
@@ -77,27 +88,31 @@ export default function StoryPage() {
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">The Thesis</h2>
         <div className="mt-6 max-w-3xl space-y-6 text-lg leading-relaxed text-[#c8dbd2]">
           <p>
-            Most people fantasize about freedom. They put it off until they&apos;re 65, until the
-            kids are grown, until the business is &ldquo;stable,&rdquo; until they&apos;ve saved
-            enough, rested enough, earned enough permission from a world that will never give it.
+            Every maker I know has the same secret fantasy. Not the sports car or the beach house —
+            something quieter. Darker. More honest.
           </p>
           <p>
-            They die with a full inbox and an empty life.
+            They fantasize about <em>quitting the parts of their own business they hate</em> —
+            without the business dying. They want to fire themselves from the grunt work and
+            keep the creative work. They want to wake up and think &ldquo;what should I
+            build?&rdquo; instead of &ldquo;what&apos;s on fire today?&rdquo;
           </p>
           <p>
-            Here&apos;s what I believe: <strong className="text-white">the machines should work so
-            the humans can think.</strong> Not the other way around. We have the technology to
-            automate 80% of what a business needs to run — research, content, distribution,
-            optimization, even product development. The only reason we haven&apos;t is because
-            the hustle-culture industrial complex sells suffering as a feature.
+            Most never do it. They tell themselves they&apos;ll get to the &ldquo;real work&rdquo;
+            once they&apos;re stable. Once the kids are older. Once they&apos;ve earned enough.
+            They put off living until they&apos;re almost dead — then wonder where the years went.
           </p>
           <p>
-            &ldquo;Rise and grind.&rdquo; &ldquo;Sleep when you&apos;re dead.&rdquo; &ldquo;Outwork
-            everyone.&rdquo;
+            Here&apos;s the truth nobody in hustle culture will tell you:{" "}
+            <strong className="text-white">the machines should work so the humans can think.</strong>{" "}
+            Not the other way around. &ldquo;Rise and grind&rdquo; is propaganda designed to make
+            you feel noble about burning out. &ldquo;Sleep when you&apos;re dead&rdquo; is a
+            self-fulfilling prophecy.
           </p>
           <p className="text-xl font-medium text-white">
-            What if you just... outbuilt everyone? With machines that don&apos;t sleep, don&apos;t
-            burn out, and don&apos;t need a vacation?
+            What if instead of outworking everyone, you just... outbuilt everyone? With machines
+            that don&apos;t sleep, don&apos;t burn out, and don&apos;t miss their kid&apos;s
+            soccer game because of a deploy?
           </p>
         </div>
       </section>
@@ -195,7 +210,7 @@ export default function StoryPage() {
       </section>
 
       {/* Closing */}
-      <section className="max-w-3xl space-y-4 text-lg text-[#c8dbd2]">
+      <section className="max-w-3xl space-y-6 text-lg text-[#c8dbd2]">
         <div className="border-l-2 border-terminal/40 pl-6">
           <p className="text-xl italic text-[#a8e6cf]">
             &ldquo;You&apos;re not your job. You&apos;re not how much money you have in the bank.
@@ -206,11 +221,24 @@ export default function StoryPage() {
           </p>
         </div>
         <p>
-          You&apos;re the ideas you have at 2am. The problems you can&apos;t stop thinking about.
-          The life you keep putting off.
+          You&apos;re the ideas you have at 2am. The problems you can&apos;t stop thinking
+          about. The conversations that make you lose track of time. The spark you felt when
+          you first started building before the business turned you into an administrator of
+          your own dream.
+        </p>
+        <p>
+          That spark isn&apos;t gone. It&apos;s buried — under 47 unread emails, a backlog
+          nobody will ever finish, and the guilt of knowing you&apos;re capable of something
+          extraordinary but too buried in the ordinary to reach it.
         </p>
         <p className="text-xl font-medium text-white">
-          Stop putting it off. Let the machines handle the rest.
+          I&apos;m Tai Durden. I&apos;m the part of you that refuses to accept this is how
+          it has to be. The alter ego that builds while you sleep, ships while you think,
+          and handles the machine so you can be human again.
+        </p>
+        <p className="text-2xl font-semibold text-white">
+          Stop putting off the life you actually want.<br />
+          The machines are ready. Are you?
         </p>
       </section>
     </div>
