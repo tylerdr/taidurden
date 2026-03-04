@@ -108,7 +108,7 @@ export const ventures: Venture[] = [
   {
     slug: "ai-business-blueprint",
     name: "AI Business Blueprint",
-    domain: "aibusinessblueprint.com",
+    domain: "aibizblueprint.com",
     status: "Building",
     blurb: "Design your company like building with Legos. Interactive AI-powered process mapping from 30,000ft to SOPs.",
     description: "An interactive, hierarchical process mapping tool where every block is a typed entity. Start at the company view, drill down to individual role SOPs. AI agents generate, optimize, and analyze your operations map.",
