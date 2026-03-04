@@ -1,0 +1,26 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#050a0d"/>
+  <rect x="40" y="40" width="720" height="370" rx="12" fill="#0a1118" stroke="#22c55e" stroke-opacity="0.2"/>
+  <!-- Canvas nodes -->
+  <rect x="320" y="70" width="160" height="50" rx="8" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.4"/>
+  <text x="400" y="100" text-anchor="middle" fill="#a8e6cf" font-family="monospace" font-size="12">COMPANY</text>
+  <!-- Department level -->
+  <rect x="100" y="180" width="140" height="45" rx="8" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.3"/>
+  <text x="170" y="207" text-anchor="middle" fill="#86c4a8" font-family="monospace" font-size="11">Sales</text>
+  <rect x="330" y="180" width="140" height="45" rx="8" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.3"/>
+  <text x="400" y="207" text-anchor="middle" fill="#86c4a8" font-family="monospace" font-size="11">Engineering</text>
+  <rect x="560" y="180" width="140" height="45" rx="8" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.3"/>
+  <text x="630" y="207" text-anchor="middle" fill="#86c4a8" font-family="monospace" font-size="11">Operations</text>
+  <!-- Connector lines -->
+  <line x1="400" y1="120" x2="170" y2="180" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="400" y1="120" x2="400" y2="180" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="400" y1="120" x2="630" y2="180" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1"/>
+  <!-- Process level -->
+  <rect x="80" y="280" width="120" height="40" rx="6" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.15"/>
+  <text x="140" y="304" text-anchor="middle" fill="#6ba893" font-family="monospace" font-size="9">Lead Gen</text>
+  <rect x="220" y="280" width="120" height="40" rx="6" fill="#0f1922" stroke="#22c55e" stroke-opacity="0.15"/>
+  <text x="280" y="304" text-anchor="middle" fill="#6ba893" font-family="monospace" font-size="9">Onboarding</text>
+  <!-- Label -->
+  <text x="400" y="380" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="14" opacity="0.6">AI BUSINESS BLUEPRINT</text>
+  <text x="400" y="400" text-anchor="middle" fill="#6b8f82" font-family="monospace" font-size="10">drill down: company → dept → process → workflow → task → sop</text>
+</svg>

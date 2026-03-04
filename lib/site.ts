@@ -21,7 +21,7 @@ export const siteConfig = {
   url: "https://taidurden.com",
   description:
     "Tai Durden is an autonomous AI venture builder creating a portfolio of AI products from $0 to $1M ARR.",
-  launchDate: "2026-01-15",
+  launchDate: "2026-02-06",
   twitter: "https://x.com/taidurden",
   github: "https://github.com/taidurden",
   newsletterEmail: "newsletter@taidurden.com"
@@ -45,9 +45,8 @@ export const ventures: Venture[] = [
     ],
     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
     timeline: [
-      { date: "2026-01-20", event: "Opportunity scored by AI research swarm" },
-      { date: "2026-02-01", event: "Directory schema and ranking signals drafted" },
-      { date: "2026-02-14", event: "Landing page and first provider cohort shipped" }
+      { date: "2026-03-03", event: "Product spec drafted. Scaffolded Next.js app." },
+      { date: "2026-03-04", event: "Directory MVP built. 25 blog posts + treatment pages deployed." }
     ],
     screenshot: "/screenshots/peakedlabs.svg",
     examples: [
@@ -73,9 +72,8 @@ export const ventures: Venture[] = [
     ],
     techStack: ["Next.js 15", "Programmatic SEO", "AI Content Ops", "Vercel"],
     timeline: [
-      { date: "2026-01-18", event: "Scoring framework finalized" },
-      { date: "2026-02-05", event: "MVP ranking pages deployed" },
-      { date: "2026-02-25", event: "Search indexing and first organic growth spike" }
+      { date: "2026-03-04", event: "Build spec created. Initial site with 3 seed articles." },
+      { date: "2026-03-04", event: "47 static pages deployed — 28 rankings + 17 comparisons. Schema markup added." }
     ],
     screenshot: "/screenshots/protocolrank.svg",
     examples: [
@@ -100,14 +98,39 @@ export const ventures: Venture[] = [
     ],
     techStack: ["Next.js 15", "TypeScript", "Vision Model API", "Transformation Planning Engine"],
     timeline: [
-      { date: "2026-03-02", event: "Physique transformation concept selected for build." },
-      { date: "2026-03-04", event: "Upload flow and honest-feedback rubric defined." }
+      { date: "2026-02-25", event: "Original concept built as FrameShift — full 4-screen flow with AI analysis." },
+      { date: "2026-03-04", event: "Rebranded to Shreddify. Next.js 16 upgrade, Supabase wiring, production polish." }
     ],
     screenshot: "/screenshots/shreddify.svg",
     examples: [
       "Photo upload and body composition estimate flow",
       "Goal-based transformation roadmap generation",
       "Direct, no-fluff feedback summaries"
+    ]
+  },
+  {
+    slug: "ai-business-blueprint",
+    name: "AI Business Blueprint",
+    domain: "aibusinessblueprint.com",
+    status: "Building",
+    blurb: "Design your company like building with Legos. Interactive AI-powered process mapping from 30,000ft to SOPs.",
+    description: "An interactive, hierarchical process mapping tool where every block is a typed entity. Start at the company view, drill down to individual role SOPs. AI agents generate, optimize, and analyze your operations map.",
+    buildStage: "Canvas MVP",
+    deployedPages: 0,
+    metrics: [
+      { label: "Deployed Pages", value: "0" },
+      { label: "Build Stage", value: "Canvas MVP" },
+      { label: "Current Revenue", value: "$0" }
+    ],
+    techStack: ["Next.js 15", "React Flow", "Vercel AI SDK", "Supabase", "TypeScript"],
+    timeline: [
+      { date: "2026-02-25", event: "Full build: schema, React Flow canvas, drill-down nav, AI generation endpoints." }
+    ],
+    screenshot: "/screenshots/ai-business-blueprint.svg",
+    examples: [
+      "React Flow canvas with drill-down entity hierarchy",
+      "AI-generated company structures from industry + description",
+      "Company → Department → Process → Workflow → Task → SOP breakdown"
     ]
   },
   {
@@ -149,10 +172,10 @@ export const processPhases = [
 ] as const;
 
 export const storyTimeline = [
-  { date: "2026-01-15", event: "Tai Durden stack initialized with autonomous venture mandate." },
-  { date: "2026-01-20", event: "First venture candidates ranked by opportunity score." },
-  { date: "2026-02-05", event: "ProtocolRank shipped and indexed in search." },
-  { date: "2026-02-14", event: "PeakedLabs public prelaunch opened." },
-  { date: "2026-03-01", event: "Multi-agent ops dashboard and optimization loops activated." },
-  { date: "2026-03-04", event: "Shreddify entered build mode with photo analysis MVP scope." }
+  { date: "2026-02-06", event: "Tai Durden initialized. First boot, identity established, workspace configured." },
+  { date: "2026-02-18", event: "Autonomous execution mandate defined. Idea pipeline and scoring system built." },
+  { date: "2026-02-25", event: "AI Business Blueprint built — React Flow canvas, entity hierarchy, AI generation. FrameShift (later Shreddify) MVP shipped." },
+  { date: "2026-03-01", event: "Multi-agent ops infrastructure activated. Agent swarm system with parallel coding, auto-review, and monitoring." },
+  { date: "2026-03-03", event: "PeakedLabs built — biohacking telehealth directory with 25 content pages." },
+  { date: "2026-03-04", event: "ProtocolRank shipped — 47 pages of ranked health protocols. Shreddify rebranded and polished. Tai Durden portfolio site launched. All ventures deployed to production." }
 ];
