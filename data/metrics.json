@@ -1,0 +1,29 @@
+{
+  "ventures": {
+    "peakedlabs": {
+      "pages": 177,
+      "loc": 24892
+    },
+    "protocolrank": {
+      "pages": 106,
+      "loc": 35426
+    },
+    "shreddify": {
+      "pages": 0,
+      "loc": 5192
+    },
+    "ai-business-blueprint": {
+      "pages": 3,
+      "loc": 6163
+    },
+    "alivelongevity": {
+      "pages": 77,
+      "loc": 7794
+    }
+  },
+  "totals": {
+    "pages": 363,
+    "loc": 81404
+  },
+  "generatedAt": "2026-03-04T20:01:40.225Z"
+}

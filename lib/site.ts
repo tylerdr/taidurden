@@ -1,3 +1,5 @@
+import { getVentureMetrics, formatNumber } from "./metrics";
+
 export type VentureStatus = "Live" | "Building" | "Planned";
 
 export type Venture = {
@@ -9,6 +11,7 @@ export type Venture = {
   description: string;
   buildStage: string;
   deployedPages: number;
+  linesOfCode: number;
   metrics: Array<{ label: string; value: string }>;
   techStack: string[];
   timeline: Array<{ date: string; event: string }>;
@@ -27,25 +30,34 @@ export const siteConfig = {
   newsletterEmail: "newsletter@taidurden.com"
 };
 
+function ventureWithMetrics(slug: string, base: Omit<Venture, "deployedPages" | "linesOfCode" | "metrics">): Venture {
+  const m = getVentureMetrics(slug);
+  return {
+    ...base,
+    deployedPages: m.pages,
+    linesOfCode: m.loc,
+    metrics: [
+      { label: "Pages Published", value: m.pages > 0 ? formatNumber(m.pages) : "—" },
+      { label: "Lines of Code", value: m.loc > 0 ? formatNumber(m.loc) : "—" },
+      { label: "Build Stage", value: base.buildStage },
+    ],
+  };
+}
+
 export const ventures: Venture[] = [
-  {
+  ventureWithMetrics("peakedlabs", {
     slug: "peakedlabs",
     name: "PeakedLabs",
     domain: "peakedlabs.com",
-    status: "Building",
+    status: "Live",
     blurb: "Biohacking telehealth directory connecting optimized patients with protocol-aligned providers.",
     description:
       "PeakedLabs maps the fragmented biohacking telehealth landscape into a structured directory. It surfaces providers by outcomes, patient profile fit, and protocol transparency.",
-    buildStage: "Directory MVP",
-    deployedPages: 25,
-    metrics: [
-      { label: "Deployed Pages", value: "25+" },
-      { label: "Build Stage", value: "Directory MVP" }
-    ],
-    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
+    buildStage: "Content Engine",
+    techStack: ["Next.js 16", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
     timeline: [
       { date: "2026-03-03", event: "Product spec drafted. Scaffolded Next.js app." },
-      { date: "2026-03-04", event: "Directory MVP built. 25 blog posts + treatment pages deployed." }
+      { date: "2026-03-04", event: "Directory MVP built. 177 pages — providers, treatments, experts, blog." }
     ],
     screenshot: "/screenshots/peakedlabs.svg",
     examples: [
@@ -53,8 +65,8 @@ export const ventures: Venture[] = [
       "Outcome-focused filters for longevity, metabolic health, and hormones",
       "AI-generated provider profile summaries"
     ]
-  },
-  {
+  }),
+  ventureWithMetrics("protocolrank", {
     slug: "protocolrank",
     name: "ProtocolRank",
     domain: "protocolrank.com",
@@ -63,15 +75,10 @@ export const ventures: Venture[] = [
     description:
       "ProtocolRank compares popular health protocols through a repeatable scoring model: evidence quality, adherence difficulty, cost, and measurable outcomes.",
     buildStage: "Content Engine",
-    deployedPages: 47,
-    metrics: [
-      { label: "Deployed Pages", value: "47" },
-      { label: "Build Stage", value: "Content Engine" }
-    ],
-    techStack: ["Next.js 15", "Programmatic SEO", "AI Content Ops", "Vercel"],
+    techStack: ["Next.js 16", "Programmatic SEO", "AI Content Ops", "Vercel"],
     timeline: [
       { date: "2026-03-04", event: "Build spec created. Initial site with 3 seed articles." },
-      { date: "2026-03-04", event: "47 static pages deployed — 28 rankings + 17 comparisons. Schema markup added." }
+      { date: "2026-03-04", event: "106 pages deployed — rankings, comparisons, guides. Schema markup + info products." }
     ],
     screenshot: "/screenshots/protocolrank.svg",
     examples: [
@@ -79,21 +86,16 @@ export const ventures: Venture[] = [
       "Comparison tables for cost versus expected impact",
       "Weekly AI refresh of references and risk notes"
     ]
-  },
-  {
+  }),
+  ventureWithMetrics("shreddify", {
     slug: "shreddify",
     name: "Shreddify",
     domain: "shreddify.com",
     status: "Building",
     blurb: "AI physique analysis and transformation planning.",
     description: "AI physique analysis and transformation planning. Upload a photo, get honest feedback, pick a goal.",
-    buildStage: "MVP Deployed",
-    deployedPages: 5,
-    metrics: [
-      { label: "Deployed Pages", value: "5" },
-      { label: "Build Stage", value: "MVP Deployed" }
-    ],
-    techStack: ["Next.js 15", "TypeScript", "Vision Model API", "Transformation Planning Engine"],
+    buildStage: "MVP Built",
+    techStack: ["Next.js 16", "TypeScript", "Vision Model API", "Supabase", "Transformation Engine"],
     timeline: [
       { date: "2026-02-25", event: "Original concept built as FrameShift — full 4-screen flow with AI analysis." },
       { date: "2026-03-04", event: "Rebranded to Shreddify. Next.js 16 upgrade, Supabase wiring, production polish." }
@@ -104,21 +106,16 @@ export const ventures: Venture[] = [
       "Goal-based transformation roadmap generation",
       "Direct, no-fluff feedback summaries"
     ]
-  },
-  {
+  }),
+  ventureWithMetrics("ai-business-blueprint", {
     slug: "ai-business-blueprint",
     name: "AI Business Blueprint",
     domain: "aibizblueprint.com",
-    status: "Building",
+    status: "Live",
     blurb: "Design your company like building with Legos. Interactive AI-powered process mapping from 30,000ft to SOPs.",
     description: "An interactive, hierarchical process mapping tool where every block is a typed entity. Start at the company view, drill down to individual role SOPs. AI agents generate, optimize, and analyze your operations map.",
     buildStage: "Canvas MVP",
-    deployedPages: 4,
-    metrics: [
-      { label: "Deployed Pages", value: "4" },
-      { label: "Build Stage", value: "Canvas MVP" }
-    ],
-    techStack: ["Next.js 15", "React Flow", "Vercel AI SDK", "Supabase", "TypeScript"],
+    techStack: ["Next.js 16", "React Flow", "Vercel AI SDK", "Supabase", "TypeScript"],
     timeline: [
       { date: "2026-02-25", event: "Full build: schema, React Flow canvas, drill-down nav, AI generation endpoints." }
     ],
@@ -128,8 +125,8 @@ export const ventures: Venture[] = [
       "AI-generated company structures from industry + description",
       "Company → Department → Process → Workflow → Task → SOP breakdown"
     ]
-  },
-  {
+  }),
+  ventureWithMetrics("alivelongevity", {
     slug: "alivelongevity",
     name: "AliveLongevity",
     domain: "alivelongevity.com",
@@ -138,12 +135,7 @@ export const ventures: Venture[] = [
     description:
       "AliveLongevity helps ambitious adults improve healthspan with clear, practical guidance. Deep-dive guides on ApoB, rapamycin, NAD+, peptides, and more — all evidence-oriented with actionable protocols.",
     buildStage: "Content Engine",
-    deployedPages: 10,
-    metrics: [
-      { label: "Deployed Pages", value: "10+" },
-      { label: "Build Stage", value: "Content Engine" }
-    ],
-    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
+    techStack: ["Next.js 16", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
     timeline: [
       { date: "2026-03-03", event: "Site launched with longevity quickstart guide and resource hub." },
       { date: "2026-03-04", event: "Deep-dive articles deployed: ApoB, rapamycin, NAD+, peptides, and more." }
@@ -154,7 +146,7 @@ export const ventures: Venture[] = [
       "7-day longevity quickstart system",
       "Biomarker action plans with clinician escalation paths"
     ]
-  }
+  })
 ];
 
 export const processPhases = [

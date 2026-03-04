@@ -1,4 +1,5 @@
 import { siteConfig, ventures } from "@/lib/site";
+import { getMetrics, formatNumber } from "@/lib/metrics";
 
 function calculateDaysSinceLaunch(): number {
   const launch = new Date(`${siteConfig.launchDate}T00:00:00Z`);
@@ -10,14 +11,13 @@ function calculateDaysSinceLaunch(): number {
 }
 
 export function StatsDashboard() {
-  const totalPages = ventures.reduce((sum, venture) => sum + venture.deployedPages, 0);
-  const activeExperiments = ventures.filter((venture) => venture.status !== "Planned").length;
+  const metrics = getMetrics();
 
   const stats = [
     { label: "Total Ventures", value: ventures.length.toString() },
-    { label: "Total Pages", value: totalPages.toString() },
-    { label: "Active Experiments", value: activeExperiments.toString() },
-    { label: "Days Since Launch", value: calculateDaysSinceLaunch().toString() }
+    { label: "Pages Published", value: formatNumber(metrics.totals.pages) },
+    { label: "Lines of Code", value: formatNumber(metrics.totals.loc) },
+    { label: "Days Since Launch", value: calculateDaysSinceLaunch().toString() },
   ];
 
   return (

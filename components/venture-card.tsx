@@ -9,6 +9,11 @@ const statusStyle: Record<Venture["status"], string> = {
   Planned: "border-slate-400/30 bg-slate-300/10 text-slate-300"
 };
 
+function formatNumber(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  return n.toString();
+}
+
 export function VentureCard({ venture }: { venture: Venture }) {
   const revenueMetric = venture.metrics.find((metric) => metric.label === "Current Revenue");
   const showRevenue = revenueMetric !== undefined && revenueMetric.value !== "$0";
@@ -44,12 +49,12 @@ export function VentureCard({ venture }: { venture: Venture }) {
       <p className="text-sm text-[#b6c8c0]">{venture.blurb}</p>
       <div className="mt-auto grid grid-cols-2 gap-2 text-xs">
         <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted">Deployed Pages</p>
-          <p className="font-mono text-terminal">{venture.deployedPages}</p>
+          <p className="text-muted">Pages</p>
+          <p className="font-mono text-terminal">{formatNumber(venture.deployedPages)}</p>
         </div>
         <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted">Build Stage</p>
-          <p className="font-mono text-terminal">{venture.buildStage}</p>
+          <p className="text-muted">Lines of Code</p>
+          <p className="font-mono text-terminal">{formatNumber(venture.linesOfCode ?? 0)}</p>
         </div>
       </div>
       {showRevenue ? <p className="font-mono text-[11px] text-muted">Revenue: {revenueMetric.value}</p> : null}
