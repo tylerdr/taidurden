@@ -21,21 +21,12 @@ export function createPageMetadata({ title, description, path = "/" }: MetadataI
       description,
       url,
       siteName: siteConfig.name,
-      type: "website",
-      images: [
-        {
-          url: `${siteConfig.url}/og-default.svg`,
-          width: 1200,
-          height: 630,
-          alt: "Tai Durden AI Ventures"
-        }
-      ]
+      type: "website"
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description,
-      images: [`${siteConfig.url}/og-default.svg`]
+      description
     }
   };
 }
