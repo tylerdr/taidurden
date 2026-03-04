@@ -22,8 +22,8 @@ export const siteConfig = {
   description:
     "Tai Durden is an autonomous AI venture builder creating a portfolio of AI products from $0 to $1M ARR.",
   launchDate: "2026-02-06",
-  twitter: "https://x.com/taidurden",
-  github: "https://github.com/taidurden",
+  twitter: "https://x.com/tai_durden_ai",
+  github: "https://github.com/tylerdr",
   newsletterEmail: "newsletter@taidurden.com"
 };
 
@@ -37,11 +37,10 @@ export const ventures: Venture[] = [
     description:
       "PeakedLabs maps the fragmented biohacking telehealth landscape into a structured directory. It surfaces providers by outcomes, patient profile fit, and protocol transparency.",
     buildStage: "Directory MVP",
-    deployedPages: 1,
+    deployedPages: 25,
     metrics: [
-      { label: "Deployed Pages", value: "1" },
-      { label: "Build Stage", value: "Directory MVP" },
-      { label: "Current Revenue", value: "$0" }
+      { label: "Deployed Pages", value: "25+" },
+      { label: "Build Stage", value: "Directory MVP" }
     ],
     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
     timeline: [
@@ -63,12 +62,11 @@ export const ventures: Venture[] = [
     blurb: "Independent rankings of health protocols with transparent evidence scoring.",
     description:
       "ProtocolRank compares popular health protocols through a repeatable scoring model: evidence quality, adherence difficulty, cost, and measurable outcomes.",
-    buildStage: "Scoring MVP",
-    deployedPages: 1,
+    buildStage: "Content Engine",
+    deployedPages: 47,
     metrics: [
-      { label: "Deployed Pages", value: "1" },
-      { label: "Build Stage", value: "Scoring MVP" },
-      { label: "Current Revenue", value: "$0" }
+      { label: "Deployed Pages", value: "47" },
+      { label: "Build Stage", value: "Content Engine" }
     ],
     techStack: ["Next.js 15", "Programmatic SEO", "AI Content Ops", "Vercel"],
     timeline: [
@@ -89,12 +87,11 @@ export const ventures: Venture[] = [
     status: "Building",
     blurb: "AI physique analysis and transformation planning.",
     description: "AI physique analysis and transformation planning. Upload a photo, get honest feedback, pick a goal.",
-    buildStage: "Prototype Build",
-    deployedPages: 0,
+    buildStage: "MVP Deployed",
+    deployedPages: 5,
     metrics: [
-      { label: "Scans Completed", value: "0" },
-      { label: "Beta Signups", value: "0" },
-      { label: "Current Revenue", value: "$0" }
+      { label: "Deployed Pages", value: "5" },
+      { label: "Build Stage", value: "MVP Deployed" }
     ],
     techStack: ["Next.js 15", "TypeScript", "Vision Model API", "Transformation Planning Engine"],
     timeline: [
@@ -116,11 +113,10 @@ export const ventures: Venture[] = [
     blurb: "Design your company like building with Legos. Interactive AI-powered process mapping from 30,000ft to SOPs.",
     description: "An interactive, hierarchical process mapping tool where every block is a typed entity. Start at the company view, drill down to individual role SOPs. AI agents generate, optimize, and analyze your operations map.",
     buildStage: "Canvas MVP",
-    deployedPages: 0,
+    deployedPages: 4,
     metrics: [
-      { label: "Deployed Pages", value: "0" },
-      { label: "Build Stage", value: "Canvas MVP" },
-      { label: "Current Revenue", value: "$0" }
+      { label: "Deployed Pages", value: "4" },
+      { label: "Build Stage", value: "Canvas MVP" }
     ],
     techStack: ["Next.js 15", "React Flow", "Vercel AI SDK", "Supabase", "TypeScript"],
     timeline: [
@@ -144,9 +140,7 @@ export const ventures: Venture[] = [
     buildStage: "Validation",
     deployedPages: 0,
     metrics: [
-      { label: "Deployed Pages", value: "0" },
-      { label: "Build Stage", value: "Validation" },
-      { label: "Current Revenue", value: "$0" }
+      { label: "Build Stage", value: "Validation" }
     ],
     techStack: ["Next.js 15", "Crawler Agents", "Scoring Models"],
     timeline: [

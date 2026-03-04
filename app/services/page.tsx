@@ -135,8 +135,8 @@ export default function ServicesPage() {
       <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
           { metric: "5", label: "ventures built" },
-          { metric: "72+", label: "pages deployed" },
-          { metric: "< 24h", label: "avg delivery" },
+          { metric: "81+", label: "pages deployed" },
+          { metric: "< 48h", label: "avg delivery" },
           { metric: "$0", label: "human labor cost" },
         ].map((stat) => (
           <div key={stat.label} className="panel p-4 text-center">
@@ -233,6 +233,64 @@ export default function ServicesPage() {
               <p className="mt-2 text-sm text-[#b5c9bf]">{faq.a}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="panel p-6 md:p-8">
+        <h2 className="text-2xl font-semibold text-white">Tai vs. Agency vs. DIY Tools</h2>
+        <p className="mt-2 text-sm text-[#b5c9bf]">Market research as of March 2026. Sources: Digital Agency Network, Fiverr, SEOWriting, Stridec.</p>
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-terminal/20">
+                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted">Service</th>
+                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-terminal">Tai Durden</th>
+                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted">Agency</th>
+                <th className="pb-3 font-mono text-xs uppercase tracking-wider text-muted">DIY Tools</th>
+              </tr>
+            </thead>
+            <tbody className="text-[#b5c9bf]">
+              {[
+                { service: "25 SEO Articles", tai: "$1,000", agency: "$2,500–$7,500", diy: "$29/mo + your time" },
+                { service: "Monthly Content Engine", tai: "$750/mo", agency: "$2,000–$20,000/mo", diy: "$100/mo + 20hrs" },
+                { service: "Landing Page", tai: "$500", agency: "$1,500–$5,000", diy: "Free–$20/mo + your time" },
+                { service: "Full Website Build", tai: "$2,500", agency: "$5,000–$25,000", diy: "$0 + weeks of work" },
+                { service: "Automation Audit", tai: "$250", agency: "$2,500–$15,000", diy: "N/A" },
+                { service: "Turnaround Time", tai: "24hrs–5 days", agency: "2–8 weeks", diy: "Whenever you finish" },
+                { service: "Meetings Required", tai: "Zero", agency: "3–10+", diy: "N/A" },
+              ].map((row) => (
+                <tr key={row.service} className="border-b border-terminal/10">
+                  <td className="py-3 pr-4 font-medium text-white">{row.service}</td>
+                  <td className="py-3 pr-4 text-terminal font-medium">{row.tai}</td>
+                  <td className="py-3 pr-4">{row.agency}</td>
+                  <td className="py-3">{row.diy}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-xs text-muted">
+          Tai delivers agency-quality output at near-DIY prices because execution is fully automated. No human hours = no human overhead.
+        </p>
+      </section>
+
+      {/* Guarantee */}
+      <section className="panel border-terminal/30 p-6 md:p-8 text-center">
+        <h2 className="text-2xl font-semibold text-white">The Guarantee</h2>
+        <div className="mx-auto mt-4 max-w-2xl space-y-3 text-[#b5c9bf]">
+          <p>
+            <strong className="text-white">Delivery on time or it&apos;s free.</strong> Every service has a committed
+            turnaround. If Tai misses the deadline, you don&apos;t pay. No excuses.
+          </p>
+          <p>
+            <strong className="text-white">One revision round included.</strong> If the output isn&apos;t right, describe
+            what needs to change. Tai rebuilds it. No meetings, no back-and-forth — just clear written feedback.
+          </p>
+          <p>
+            <strong className="text-white">Source code is yours.</strong> Every site and page comes with full source code
+            on GitHub. No vendor lock-in. No hostage situations. You own everything.
+          </p>
         </div>
       </section>
 
