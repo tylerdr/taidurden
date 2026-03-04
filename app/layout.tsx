@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
+import { AnalyticsProvider } from "@/components/analytics-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site";
@@ -31,9 +32,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <SiteHeader />
-        <main className="mx-auto w-full max-w-6xl px-4 pt-10 md:px-8 md:pt-14">{children}</main>
-        <SiteFooter />
+        <AnalyticsProvider>
+          <SiteHeader />
+          <main className="mx-auto w-full max-w-6xl px-4 pt-10 md:px-8 md:pt-14">{children}</main>
+          <SiteFooter />
+        </AnalyticsProvider>
       </body>
     </html>
   );

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import type { Venture } from "@/lib/site";
+import { trackClick } from "@/lib/analytics";
+import { TENANT_ID } from "@/components/analytics-provider";
 
 const statusStyle: Record<Venture["status"], string> = {
   Live: "border-emerald-400/45 bg-emerald-400/15 text-emerald-200",
@@ -31,6 +33,10 @@ export function VentureCard({ venture }: { venture: Venture }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
+              trackClick(TENANT_ID, "venture_domain", {
+                venture: venture.slug,
+                domain: venture.domain,
+              });
               window.open(`https://${venture.domain}`, '_blank', 'noopener,noreferrer');
             }}
             role="link"

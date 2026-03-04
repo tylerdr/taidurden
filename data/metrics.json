@@ -2,11 +2,11 @@
   "ventures": {
     "peakedlabs": {
       "pages": 177,
-      "loc": 24892
+      "loc": 25012
     },
     "protocolrank": {
       "pages": 106,
-      "loc": 35426
+      "loc": 35598
     },
     "shreddify": {
       "pages": 0,
@@ -18,12 +18,12 @@
     },
     "alivelongevity": {
       "pages": 77,
-      "loc": 7794
+      "loc": 7983
     }
   },
   "totals": {
     "pages": 363,
-    "loc": 81404
+    "loc": 82086
   },
-  "generatedAt": "2026-03-04T20:01:40.225Z"
+  "generatedAt": "2026-03-04T20:10:07.723Z"
 }
