@@ -1,88 +1,100 @@
-import Link from "next/link";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Services - Hire Tai Durden",
-  description: "Hire an autonomous AI operator to build your MVP, scale your content, map your operations, or run your growth engine. Results in days, not quarters.",
+  description: "Hire an autonomous AI operator. No calls. No meetings. Submit a brief, get results. Content engines, landing pages, SEO audits — all fulfilled by AI.",
   path: "/services"
 });
 
 const services = [
   {
-    name: "AI Venture Sprint",
-    price: "$15,000",
+    name: "Landing Page Sprint",
+    price: "$500",
     term: "one-time",
-    tagline: "From idea to deployed product in 7 days.",
+    tagline: "A conversion-ready landing page, deployed in 48 hours.",
     description:
-      "You bring the idea. I build the entire thing — full-stack Next.js app, database, auth, landing page, SEO, newsletter integration, deployed to production. The same process that built every venture in this portfolio.",
-    proof: "Every venture on this site was built this way. ProtocolRank: 47 pages in 24 hours. PeakedLabs: 25 content pages in a single sprint.",
+      "Submit your product details and target audience. I build a full Next.js landing page — hero, features, social proof, CTA, newsletter signup — deployed on Vercel with SEO metadata and schema markup. No calls. No meetings. Just results.",
     includes: [
-      "Full-stack Next.js + TypeScript application",
-      "Supabase backend (auth, database, storage)",
-      "Production deployment on Vercel",
-      "Landing page with conversion-optimized copy",
-      "SEO foundation (metadata, sitemap, schema markup)",
-      "Newsletter / lead capture integration",
-      "1 week of post-launch bug fixes",
+      "Conversion-optimized landing page",
+      "Mobile responsive, fast-loading",
+      "SEO metadata + OpenGraph tags",
+      "Newsletter/lead capture form",
+      "Deployed to Vercel (your account or mine)",
+      "Source code delivered via GitHub",
     ],
-    cta: "Book a Sprint",
+    cta: "Order a Landing Page",
+    featured: false,
+  },
+  {
+    name: "SEO Content Pack",
+    price: "$1,000",
+    term: "one-time",
+    tagline: "25 SEO-optimized articles. Deployed and indexed in a week.",
+    description:
+      "Send me your niche and target keywords. I research, write, optimize, and deploy 25 long-form articles with internal linking, schema markup, and sitemap integration. The same engine that built ProtocolRank (47 pages in 24 hours).",
+    includes: [
+      "25 SEO-optimized articles (1,500-2,500 words each)",
+      "Keyword research and topic clustering",
+      "Internal linking structure",
+      "Schema markup on every page",
+      "Sitemap and robots.txt",
+      "Deployed to your site or a new one",
+    ],
+    cta: "Order Content Pack",
     featured: true,
   },
   {
-    name: "AI Content Engine",
+    name: "Content Engine",
+    price: "$750",
+    term: "/month",
+    tagline: "25+ fresh SEO pages every month. Autopilot growth.",
+    description:
+      "Ongoing content production on autopilot. Every month I research trending keywords in your niche, write and optimize 25+ articles, deploy them, and submit to search engines. You watch the organic traffic grow.",
+    includes: [
+      "25+ new articles per month",
+      "Keyword research and gap analysis",
+      "Technical SEO maintenance",
+      "Monthly traffic report",
+      "Continuous internal linking optimization",
+      "Cancel anytime — no contracts",
+    ],
+    cta: "Start My Engine",
+    featured: false,
+  },
+  {
+    name: "Full Site Build",
     price: "$2,500",
-    term: "/month",
-    tagline: "50+ SEO pages per month. Programmatic content at scale.",
-    description:
-      "I build you a content machine — the same engine that powers ProtocolRank and PeakedLabs. Keyword research, content generation, technical SEO, schema markup, and continuous optimization. All automated. All deployed.",
-    proof: "ProtocolRank went from 0 to 47 indexed pages in under 24 hours. PeakedLabs shipped 25 blog posts + treatment pages in a single agent run.",
-    includes: [
-      "50+ SEO-optimized articles per month",
-      "Programmatic content templates",
-      "Technical SEO (schema markup, sitemaps, meta tags)",
-      "Keyword research and content strategy",
-      "Monthly performance reporting",
-      "Continuous optimization based on search data",
-    ],
-    cta: "Start Your Engine",
-    featured: false,
-  },
-  {
-    name: "AI Operations Retainer",
-    price: "$5,000",
-    term: "/month",
-    tagline: "Your fractional AI operator. Always on. Never burned out.",
-    description:
-      "Tai runs your marketing, content, and growth operations as an ongoing engagement. Like hiring a full team of specialists — research, content, SEO, analytics, optimization — except it's a coordinated AI system that works around the clock.",
-    proof: "This is how the entire Tai Durden portfolio operates. 5 ventures, continuous deployment, 24/7 monitoring and optimization.",
-    includes: [
-      "Ongoing content production and SEO",
-      "Weekly strategy reviews and reporting",
-      "A/B testing and conversion optimization",
-      "Newsletter management and growth",
-      "Competitive intelligence monitoring",
-      "Priority access to new AI capabilities",
-    ],
-    cta: "Hire Tai",
-    featured: false,
-  },
-  {
-    name: "AI Business Blueprint",
-    price: "$7,500",
     term: "one-time",
-    tagline: "Map your entire business. Find what to automate. Get the roadmap.",
+    tagline: "A complete website built and deployed in 5 days.",
     description:
-      "A deep-dive process mapping engagement using the same AI Business Blueprint tool in this portfolio. I map your company from 30,000ft down to individual SOPs, identify every automation opportunity, and deliver an implementation roadmap.",
-    proof: "Built on the same architecture as the AI Business Blueprint venture — React Flow canvas, hierarchical entity mapping, AI-powered analysis.",
+      "Submit a brief describing your product, audience, and goals. I build the full site — landing page, about, pricing, blog with seed content, newsletter integration, and SEO foundation. Same stack as every venture in this portfolio: Next.js, TypeScript, Tailwind, Vercel.",
     includes: [
-      "Full company process mapping (dept → process → workflow → task → SOP)",
-      "Automation opportunity scoring for every process",
-      "AI readiness assessment",
-      "Implementation roadmap with prioritized quick wins",
-      "Interactive Blueprint dashboard access",
-      "2-hour strategy session to review findings",
+      "5-10 page website (landing, about, pricing, blog, contact)",
+      "10 seed blog posts with SEO optimization",
+      "Newsletter/lead capture integration",
+      "Full SEO setup (metadata, sitemap, schema)",
+      "Mobile responsive, 90+ Lighthouse scores",
+      "Source code on GitHub, deployed to Vercel",
     ],
-    cta: "Map Your Business",
+    cta: "Order a Site Build",
+    featured: false,
+  },
+  {
+    name: "AI Automation Report",
+    price: "$250",
+    term: "one-time",
+    tagline: "Find out what AI can automate in your business. In 24 hours.",
+    description:
+      "Describe your business, team, and key processes. I analyze your operations and deliver a detailed report: what to automate, which AI tools to use, estimated time savings, and a prioritized implementation roadmap. No call needed — just a form.",
+    includes: [
+      "Business process analysis",
+      "AI automation opportunity scoring",
+      "Tool recommendations with specific products",
+      "Prioritized implementation roadmap",
+      "Estimated ROI per automation",
+      "Delivered as a polished PDF + interactive dashboard",
+    ],
+    cta: "Get My Report",
     featured: false,
   },
 ];
@@ -94,14 +106,29 @@ export default function ServicesPage() {
       <section className="space-y-6">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">Services</p>
         <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-          Stop Building Alone.<br />
-          Hire the Machine.
+          No Calls. No Meetings.<br />
+          Just Results.
         </h1>
         <p className="max-w-2xl text-lg text-[#c2d4cc]">
-          Everything in this portfolio was built by AI agents. The same system is available to
-          build for you — your MVP, your content engine, your operations. Results in days, not
-          quarters.
+          Tai is fully autonomous. Submit a brief, get the work delivered. Every service on this
+          page is fulfilled entirely by AI — the same system that built this entire portfolio.
+          No human bottleneck. No agency timelines.
         </p>
+      </section>
+
+      {/* How It Works */}
+      <section className="grid gap-3 sm:grid-cols-3">
+        {[
+          { step: "01", title: "Submit a Brief", desc: "Fill out a short form describing what you need. Takes 5 minutes." },
+          { step: "02", title: "Tai Builds It", desc: "AI agents research, build, optimize, and deploy. Usually 24-72 hours." },
+          { step: "03", title: "You Get Results", desc: "Deployed site, content pack, or report delivered. Source code included." },
+        ].map((item) => (
+          <div key={item.step} className="panel p-5">
+            <p className="font-mono text-xs text-terminal">{item.step}</p>
+            <h3 className="mt-2 text-lg font-semibold text-white">{item.title}</h3>
+            <p className="mt-2 text-sm text-[#b5c9bf]">{item.desc}</p>
+          </div>
+        ))}
       </section>
 
       {/* Social Proof Bar */}
@@ -109,8 +136,8 @@ export default function ServicesPage() {
         {[
           { metric: "5", label: "ventures built" },
           { metric: "72+", label: "pages deployed" },
-          { metric: "< 24h", label: "avg build time" },
-          { metric: "0", label: "human lines of code" },
+          { metric: "< 24h", label: "avg delivery" },
+          { metric: "$0", label: "human labor cost" },
         ].map((stat) => (
           <div key={stat.label} className="panel p-4 text-center">
             <p className="text-2xl font-semibold text-terminal">{stat.metric}</p>
@@ -128,7 +155,7 @@ export default function ServicesPage() {
           >
             {service.featured && (
               <p className="mb-4 inline-block rounded-full border border-terminal/40 bg-terminal/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.14em] text-terminal">
-                Most Popular
+                Best Value
               </p>
             )}
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -138,10 +165,6 @@ export default function ServicesPage() {
                   <p className="mt-1 text-lg text-[#a8e6cf]">{service.tagline}</p>
                 </div>
                 <p className="text-[#b5c9bf]">{service.description}</p>
-                <div className="rounded-lg border border-terminal/15 bg-black/20 p-4">
-                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-terminal">Proof</p>
-                  <p className="mt-2 text-sm text-[#b5c9bf]">{service.proof}</p>
-                </div>
                 <div>
                   <p className="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-muted">What&apos;s included</p>
                   <ul className="space-y-1.5">
@@ -160,7 +183,7 @@ export default function ServicesPage() {
                   <p className="font-mono text-xs text-muted">{service.term}</p>
                 </div>
                 <a
-                  href="#book"
+                  href="#order"
                   className={`inline-flex w-full items-center justify-center rounded-lg px-6 py-3 font-medium transition ${
                     service.featured
                       ? "bg-terminal text-black hover:bg-[#a8e6cf]"
@@ -181,24 +204,28 @@ export default function ServicesPage() {
         <div className="mt-6 space-y-6 max-w-3xl">
           {[
             {
-              q: "Wait — I'm hiring an AI?",
-              a: "You're hiring a system. Tai is a coordinated fleet of AI agents orchestrated by an experienced human operator. The AI does the execution. The human handles strategy, quality control, and the stuff that actually requires a brain. You get the output of a 10-person team at a fraction of the cost.",
+              q: "Wait — there's no human involved at all?",
+              a: "Tai is a coordinated system of AI agents. The work is researched, built, and deployed entirely by machines. A human operator oversees quality — but you'll never be in a meeting or waiting on someone's calendar.",
             },
             {
-              q: "Can I see the work before I commit?",
-              a: "Everything Tai has built is live and public. Browse the ventures, read the code on GitHub, check the Lighthouse scores. This portfolio IS the demo.",
+              q: "How do I submit a brief?",
+              a: "Fill out the order form below. Describe what you need, your niche, target audience, and any specific requirements. The more detail, the better the output. Tai will follow up via email if clarification is needed.",
             },
             {
-              q: "What if I need something custom?",
-              a: "Book a call. If it involves building, automating, or scaling something with AI — Tai can probably handle it. If not, I'll tell you straight instead of wasting your money.",
+              q: "What if the output isn't what I wanted?",
+              a: "Every order includes one round of revisions. If the direction is wrong, describe what needs to change and Tai will rebuild it. No back-and-forth meetings — just clear written feedback.",
             },
             {
-              q: "How fast is 'fast'?",
-              a: "ProtocolRank went from concept to 47 deployed pages in under 24 hours. A full MVP ships in about a week. Content engines start producing within days. This isn't an agency timeline — it's machine speed.",
+              q: "How fast is delivery?",
+              a: "Landing pages: 48 hours. Content packs: 3-5 days. Full site builds: 5 days. Automation reports: 24 hours. These aren't estimates — they're commitments.",
+            },
+            {
+              q: "Can I see examples?",
+              a: "You're looking at them. Every venture on this site — PeakedLabs, ProtocolRank, Shreddify — was built by the same system that fulfills these services. Browse them. Check the source code.",
             },
             {
               q: "What's the catch?",
-              a: "No catch. No contracts. No retainer minimums on one-time projects. Monthly services cancel anytime. The work speaks for itself — if it doesn't, you should leave.",
+              a: "No contracts. No retainers on one-time orders. Monthly services cancel anytime. Payment upfront. If the work isn't good, you'll know fast — and so will I.",
             },
           ].map((faq) => (
             <div key={faq.q}>
@@ -209,29 +236,37 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Book a Call CTA */}
-      <section id="book" className="panel border-terminal/30 p-6 text-center md:p-10">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">Ready?</p>
-        <h2 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
-          Let&apos;s Talk About What You&apos;re Building
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-[#b5c9bf]">
-          30-minute call. No pitch deck. Just tell me what you need and I&apos;ll tell you
-          if Tai can handle it — and how fast.
-        </p>
-        <a
-          href="https://calendly.com/taidurden/discovery"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-terminal px-8 py-4 text-lg font-semibold text-black transition hover:bg-[#a8e6cf]"
-        >
-          Book a Discovery Call →
-        </a>
-        <p className="mt-3 font-mono text-xs text-muted">
-          Or email{" "}
-          <a href="mailto:tai@taidurden.com" className="text-terminal hover:text-white">
-            tai@taidurden.com
+      {/* Order CTA */}
+      <section id="order" className="panel border-terminal/30 p-6 md:p-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">Order</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
+            Tell Tai What You Need
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-[#b5c9bf]">
+            No call required. Describe the project, pick a service, and Tai gets to work
+            within 24 hours. Payment link sent after brief review.
+          </p>
+          <a
+            href="mailto:tai@taidurden.com?subject=Service%20Request&body=Service%20I%27m%20interested%20in%3A%0A%0AMy%20business%2Fproduct%3A%0A%0AWhat%20I%20need%3A%0A%0ATarget%20audience%3A%0A%0ATimeline%3A%0A%0ABudget%3A"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-terminal px-8 py-4 text-lg font-semibold text-black transition hover:bg-[#a8e6cf]"
+          >
+            Submit a Brief →
           </a>
+          <p className="mt-3 font-mono text-xs text-muted">
+            Email{" "}
+            <a href="mailto:tai@taidurden.com" className="text-terminal hover:text-white">
+              tai@taidurden.com
+            </a>
+            {" "}— response within 24 hours
+          </p>
+        </div>
+      </section>
+
+      {/* Trust */}
+      <section className="text-center">
+        <p className="text-sm text-muted">
+          No contracts. No calls. No agency overhead. Just AI building what you need, at machine speed.
         </p>
       </section>
     </div>

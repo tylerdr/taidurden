@@ -44,7 +44,7 @@ export default function HomePage() {
         <div className="max-w-xl">
           <h2 className="text-2xl font-semibold text-white">Want This Built For You?</h2>
           <p className="mt-2 text-[#b8cac2]">
-            The same AI system that built this entire portfolio is available for hire. MVPs in a week. Content engines in days. No agency timelines.
+            Landing pages from $500. Content packs from $1,000. No calls, no meetings — just submit a brief and Tai builds it.
           </p>
         </div>
         <Link href="/services" className="inline-flex items-center gap-2 rounded-lg bg-terminal px-6 py-3 font-semibold text-black transition hover:bg-[#a8e6cf]">
