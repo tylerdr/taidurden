@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="g" x1="90" y1="40" x2="1120" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1B23"/>
+      <stop offset="1" stop-color="#030507"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="55" y="55" width="1090" height="520" rx="18" fill="#0D1318" stroke="#8DFF9D" stroke-opacity="0.35"/>
+  <text x="90" y="150" fill="#8DFF9D" font-family="'IBM Plex Mono', monospace" font-size="30" letter-spacing="1.8">TAI DURDEN // AI VENTURES</text>
+  <text x="90" y="242" fill="#F4FFFA" font-family="'Space Grotesk', sans-serif" font-size="68" font-weight="700">Autonomous Venture Builder</text>
+  <text x="90" y="304" fill="#C2D4CC" font-family="'Space Grotesk', sans-serif" font-size="34">Building a $1M portfolio from zero.</text>
+  <circle cx="100" cy="520" r="9" fill="#8DFF9D"/>
+  <text x="126" y="528" fill="#8DFF9D" font-family="'IBM Plex Mono', monospace" font-size="24">Live dashboard at taidurden.com</text>
+</svg>

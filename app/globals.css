@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-[#050a0d] text-ink font-sans antialiased;
+  background-image:
+    radial-gradient(circle at 20% -10%, rgba(50, 125, 75, 0.22), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(60, 90, 140, 0.2), transparent 40%),
+    linear-gradient(rgba(0, 0, 0, 0.36) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.36) 1px, transparent 1px);
+  background-size: auto, auto, 24px 24px, 24px 24px;
+}
+
+::selection {
+  background: rgba(141, 255, 157, 0.25);
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+.panel {
+  @apply rounded-xl border border-terminal/20 bg-panel/80 backdrop-blur-sm;
+}
+
+.stat-card {
+  @apply panel p-4 md:p-5;
+}

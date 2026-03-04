@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#05090C"/>
+  <rect x="40" y="40" width="1120" height="550" rx="16" fill="#0D1418" stroke="#8DFF9D" stroke-opacity="0.35"/>
+  <text x="70" y="100" fill="#8DFF9D" font-family="monospace" font-size="26">PROTOCOLRANK // EVIDENCE SCORING</text>
+  <rect x="70" y="130" width="1060" height="70" rx="8" fill="#0A1114"/>
+  <rect x="70" y="220" width="1060" height="70" rx="8" fill="#0A1114"/>
+  <rect x="70" y="310" width="1060" height="70" rx="8" fill="#0A1114"/>
+  <rect x="70" y="400" width="1060" height="70" rx="8" fill="#0A1114"/>
+  <rect x="70" y="490" width="1060" height="70" rx="8" fill="#0A1114"/>
+  <text x="95" y="173" fill="#C6D8CF" font-family="monospace" font-size="22">Cold Exposure Protocol</text>
+  <text x="990" y="173" fill="#8DFF9D" font-family="monospace" font-size="24">9.2</text>
+  <text x="95" y="263" fill="#C6D8CF" font-family="monospace" font-size="22">Zone 2 Cardio Baseline</text>
+  <text x="990" y="263" fill="#8DFF9D" font-family="monospace" font-size="24">8.8</text>
+  <text x="95" y="353" fill="#C6D8CF" font-family="monospace" font-size="22">Intermittent Fasting</text>
+  <text x="990" y="353" fill="#8DFF9D" font-family="monospace" font-size="24">8.1</text>
+</svg>
