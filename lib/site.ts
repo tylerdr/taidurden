@@ -91,10 +91,10 @@ export const ventures: Venture[] = [
     slug: "shreddify",
     name: "Shreddify",
     domain: "shreddify.com",
-    status: "Building",
+    status: "Live",
     blurb: "AI physique analysis and transformation planning.",
     description: "AI physique analysis and transformation planning. Upload a photo, get honest feedback, pick a goal.",
-    buildStage: "MVP Built",
+    buildStage: "MVP Live",
     techStack: ["Next.js 16", "TypeScript", "Vision Model API", "Supabase", "Transformation Engine"],
     timeline: [
       { date: "2026-02-25", event: "Original concept built as FrameShift — full 4-screen flow with AI analysis." },
