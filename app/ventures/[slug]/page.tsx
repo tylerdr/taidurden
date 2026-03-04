@@ -59,12 +59,18 @@ export default async function VentureDetailPage({ params }: VenturePageProps) {
           priority
         />
         <div className="grid gap-3 p-5 md:grid-cols-3">
-          {venture.metrics.map((metric) => (
-            <article key={metric.label} className="rounded-lg border border-terminal/20 bg-black/30 p-4">
-              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">{metric.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-terminal">{metric.value}</p>
-            </article>
-          ))}
+          {venture.metrics.map((metric) => {
+            const isZeroRevenue = metric.label === "Current Revenue" && metric.value === "$0";
+
+            return (
+              <article key={metric.label} className="rounded-lg border border-terminal/20 bg-black/30 p-4">
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">{metric.label}</p>
+                <p className={isZeroRevenue ? "mt-2 font-mono text-sm text-muted" : "mt-2 text-2xl font-semibold text-terminal"}>
+                  {metric.value}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </section>
 

@@ -7,6 +7,8 @@ export type Venture = {
   status: VentureStatus;
   blurb: string;
   description: string;
+  buildStage: string;
+  deployedPages: number;
   metrics: Array<{ label: string; value: string }>;
   techStack: string[];
   timeline: Array<{ date: string; event: string }>;
@@ -34,9 +36,11 @@ export const ventures: Venture[] = [
     blurb: "Biohacking telehealth directory connecting optimized patients with protocol-aligned providers.",
     description:
       "PeakedLabs maps the fragmented biohacking telehealth landscape into a structured directory. It surfaces providers by outcomes, patient profile fit, and protocol transparency.",
+    buildStage: "Directory MVP",
+    deployedPages: 1,
     metrics: [
-      { label: "Directory Profiles", value: "128" },
-      { label: "Prelaunch Subscribers", value: "412" },
+      { label: "Deployed Pages", value: "1" },
+      { label: "Build Stage", value: "Directory MVP" },
       { label: "Current Revenue", value: "$0" }
     ],
     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
@@ -60,9 +64,11 @@ export const ventures: Venture[] = [
     blurb: "Independent rankings of health protocols with transparent evidence scoring.",
     description:
       "ProtocolRank compares popular health protocols through a repeatable scoring model: evidence quality, adherence difficulty, cost, and measurable outcomes.",
+    buildStage: "Scoring MVP",
+    deployedPages: 1,
     metrics: [
-      { label: "Protocols Scored", value: "76" },
-      { label: "Monthly Organic Visits", value: "1,940" },
+      { label: "Deployed Pages", value: "1" },
+      { label: "Build Stage", value: "Scoring MVP" },
       { label: "Current Revenue", value: "$0" }
     ],
     techStack: ["Next.js 15", "Programmatic SEO", "AI Content Ops", "Vercel"],
@@ -79,6 +85,32 @@ export const ventures: Venture[] = [
     ]
   },
   {
+    slug: "shreddify",
+    name: "Shreddify",
+    domain: "shreddify.com",
+    status: "Building",
+    blurb: "AI physique analysis and transformation planning.",
+    description: "AI physique analysis and transformation planning. Upload a photo, get honest feedback, pick a goal.",
+    buildStage: "Prototype Build",
+    deployedPages: 0,
+    metrics: [
+      { label: "Scans Completed", value: "0" },
+      { label: "Beta Signups", value: "0" },
+      { label: "Current Revenue", value: "$0" }
+    ],
+    techStack: ["Next.js 15", "TypeScript", "Vision Model API", "Transformation Planning Engine"],
+    timeline: [
+      { date: "2026-03-02", event: "Physique transformation concept selected for build." },
+      { date: "2026-03-04", event: "Upload flow and honest-feedback rubric defined." }
+    ],
+    screenshot: "/screenshots/shreddify.svg",
+    examples: [
+      "Photo upload and body composition estimate flow",
+      "Goal-based transformation roadmap generation",
+      "Direct, no-fluff feedback summaries"
+    ]
+  },
+  {
     slug: "neuralyield",
     name: "NeuralYield",
     domain: "neuralyield.ai",
@@ -86,9 +118,11 @@ export const ventures: Venture[] = [
     blurb: "An AI research assistant for operators tracking high-leverage AI tooling bets.",
     description:
       "NeuralYield is a pipeline concept focused on founder-grade intelligence reports for AI SaaS opportunities. Currently in validation and scoring mode.",
+    buildStage: "Validation",
+    deployedPages: 0,
     metrics: [
-      { label: "Validation Interviews", value: "16" },
-      { label: "Draft Reports", value: "9" },
+      { label: "Deployed Pages", value: "0" },
+      { label: "Build Stage", value: "Validation" },
       { label: "Current Revenue", value: "$0" }
     ],
     techStack: ["Next.js 15", "Crawler Agents", "Scoring Models"],
@@ -119,5 +153,6 @@ export const storyTimeline = [
   { date: "2026-01-20", event: "First venture candidates ranked by opportunity score." },
   { date: "2026-02-05", event: "ProtocolRank shipped and indexed in search." },
   { date: "2026-02-14", event: "PeakedLabs public prelaunch opened." },
-  { date: "2026-03-01", event: "Multi-agent ops dashboard and optimization loops activated." }
+  { date: "2026-03-01", event: "Multi-agent ops dashboard and optimization loops activated." },
+  { date: "2026-03-04", event: "Shreddify entered build mode with photo analysis MVP scope." }
 ];
