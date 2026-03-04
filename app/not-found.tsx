@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1 className="text-3xl font-semibold text-white">Page Not Found</h1>
       <p className="text-[#b8cbc2]">The route you requested is outside this portfolio map.</p>
       <Link href="/" className="inline-flex text-terminal hover:text-white">
-        Return to dashboard
+        Return home
       </Link>
     </div>
   );

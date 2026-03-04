@@ -45,8 +45,26 @@ export default async function VentureDetailPage({ params }: VenturePageProps) {
       <section className="space-y-4">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">Venture Detail</p>
         <h1 className="text-4xl font-semibold text-white md:text-5xl">{venture.name}</h1>
-        <p className="font-mono text-sm uppercase tracking-[0.14em] text-muted">{venture.domain}</p>
+        <a
+          href={`https://${venture.domain}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.14em] text-terminal hover:text-white transition"
+        >
+          {venture.domain}
+          <span className="text-xs">↗</span>
+        </a>
         <p className="max-w-3xl text-[#bbcdc4]">{venture.description}</p>
+        {venture.status !== "Planned" && (
+          <a
+            href={`https://${venture.domain}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-terminal px-6 py-3 font-semibold text-black transition hover:bg-[#a8e6cf]"
+          >
+            Visit {venture.name} →
+          </a>
+        )}
       </section>
 
       <section className="panel overflow-hidden">

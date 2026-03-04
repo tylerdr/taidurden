@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { Venture } from "@/lib/site";
 
@@ -19,7 +21,18 @@ export function VentureCard({ venture }: { venture: Venture }) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-xl font-semibold text-white">{venture.name}</h3>
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">{venture.domain}</p>
+          <span
+            className="font-mono text-xs uppercase tracking-[0.16em] text-terminal hover:text-white transition"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(`https://${venture.domain}`, '_blank', 'noopener,noreferrer');
+            }}
+            role="link"
+            tabIndex={0}
+          >
+            {venture.domain} ↗
+          </span>
         </div>
         <span
           className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold ${statusStyle[venture.status]}`}

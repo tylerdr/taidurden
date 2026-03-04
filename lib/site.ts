@@ -130,28 +130,29 @@ export const ventures: Venture[] = [
     ]
   },
   {
-    slug: "neuralyield",
-    name: "NeuralYield",
-    domain: "neuralyield.ai",
-    status: "Planned",
-    blurb: "An AI research assistant for operators tracking high-leverage AI tooling bets.",
+    slug: "alivelongevity",
+    name: "AliveLongevity",
+    domain: "alivelongevity.com",
+    status: "Live",
+    blurb: "Evidence-based longevity strategies that fit real life. Practical guidance across sleep, training, nutrition, and biomarkers.",
     description:
-      "NeuralYield is a pipeline concept focused on founder-grade intelligence reports for AI SaaS opportunities. Currently in validation and scoring mode.",
-    buildStage: "Validation",
-    deployedPages: 0,
+      "AliveLongevity helps ambitious adults improve healthspan with clear, practical guidance. Deep-dive guides on ApoB, rapamycin, NAD+, peptides, and more — all evidence-oriented with actionable protocols.",
+    buildStage: "Content Engine",
+    deployedPages: 10,
     metrics: [
-      { label: "Build Stage", value: "Validation" }
+      { label: "Deployed Pages", value: "10+" },
+      { label: "Build Stage", value: "Content Engine" }
     ],
-    techStack: ["Next.js 15", "Crawler Agents", "Scoring Models"],
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Static SEO Pages"],
     timeline: [
-      { date: "2026-02-12", event: "Idea enters active funnel" },
-      { date: "2026-02-28", event: "Market interview sprint completed" }
+      { date: "2026-03-03", event: "Site launched with longevity quickstart guide and resource hub." },
+      { date: "2026-03-04", event: "Deep-dive articles deployed: ApoB, rapamycin, NAD+, peptides, and more." }
     ],
-    screenshot: "/screenshots/neuralyield.svg",
+    screenshot: "/screenshots/alivelongevity.svg",
     examples: [
-      "Competitive landscape snapshots",
-      "ICP fit scoring",
-      "Go-to-market timing indicators"
+      "Evidence-oriented supplement and protocol guides",
+      "7-day longevity quickstart system",
+      "Biomarker action plans with clinician escalation paths"
     ]
   }
 ];
