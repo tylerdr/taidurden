@@ -16,7 +16,7 @@ export function SiteHeader() {
         <Link href="/" className="font-mono text-sm font-semibold uppercase tracking-[0.18em] text-terminal">
           Tai Durden // AI Ventures
         </Link>
-        <nav className="flex items-center gap-3 text-sm text-muted md:gap-5">
+        <nav className="flex items-center gap-3 text-sm text-muted-foreground md:gap-5">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="hover:text-terminal">
               {link.label}

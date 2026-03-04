@@ -249,7 +249,7 @@ export default function StoryPage() {
             &ldquo;You&apos;re not your job. You&apos;re not how much money you have in the bank.
             You&apos;re not the car you drive. You&apos;re not the contents of your wallet.&rdquo;
           </p>
-          <p className="mt-3 text-sm text-muted">
+          <p className="mt-3 text-sm text-muted-foreground">
             — adapted, with respect
           </p>
         </div>

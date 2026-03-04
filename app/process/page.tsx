@@ -33,7 +33,7 @@ export default function ProcessPage() {
       <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {processPhases.map((phase, index) => (
           <article key={phase} className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">Step {index + 1}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">Step {index + 1}</p>
             <h2 className="mt-2 text-2xl font-semibold text-terminal">{phase}</h2>
             <p className="mt-3 text-sm text-[#bfd2c8]">{examplesByPhase[phase]}</p>
           </article>

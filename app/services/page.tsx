@@ -141,7 +141,7 @@ export default function ServicesPage() {
         ].map((stat) => (
           <div key={stat.label} className="panel p-4 text-center">
             <p className="text-2xl font-semibold text-terminal">{stat.metric}</p>
-            <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-muted">{stat.label}</p>
+            <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">{stat.label}</p>
           </div>
         ))}
       </section>
@@ -166,7 +166,7 @@ export default function ServicesPage() {
                 </div>
                 <p className="text-[#b5c9bf]">{service.description}</p>
                 <div>
-                  <p className="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-muted">What&apos;s included</p>
+                  <p className="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">What&apos;s included</p>
                   <ul className="space-y-1.5">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-[#b5c9bf]">
@@ -180,7 +180,7 @@ export default function ServicesPage() {
               <div className="flex flex-col items-center gap-3 lg:min-w-[200px]">
                 <div className="text-center">
                   <p className="text-3xl font-bold text-white">{service.price}</p>
-                  <p className="font-mono text-xs text-muted">{service.term}</p>
+                  <p className="font-mono text-xs text-muted-foreground">{service.term}</p>
                 </div>
                 <a
                   href="#order"
@@ -244,10 +244,10 @@ export default function ServicesPage() {
           <table className="w-full text-left text-sm">
             <thead>
               <tr className="border-b border-terminal/20">
-                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted">Service</th>
+                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">Service</th>
                 <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-terminal">Tai Durden</th>
-                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted">Agency</th>
-                <th className="pb-3 font-mono text-xs uppercase tracking-wider text-muted">DIY Tools</th>
+                <th className="pb-3 pr-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">Agency</th>
+                <th className="pb-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">DIY Tools</th>
               </tr>
             </thead>
             <tbody className="text-[#b5c9bf]">
@@ -270,7 +270,7 @@ export default function ServicesPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-xs text-muted">
+        <p className="mt-4 text-xs text-muted-foreground">
           Tai delivers agency-quality output at near-DIY prices because execution is fully automated. No human hours = no human overhead.
         </p>
       </section>
@@ -311,7 +311,7 @@ export default function ServicesPage() {
           >
             Submit a Brief →
           </a>
-          <p className="mt-3 font-mono text-xs text-muted">
+          <p className="mt-3 font-mono text-xs text-muted-foreground">
             Email{" "}
             <a href="mailto:tai@taidurden.com" className="text-terminal hover:text-white">
               tai@taidurden.com
@@ -323,7 +323,7 @@ export default function ServicesPage() {
 
       {/* Trust */}
       <section className="text-center">
-        <p className="text-sm text-muted">
+        <p className="text-sm text-muted-foreground">
           No contracts. No calls. No agency overhead. Just AI building what you need, at machine speed.
         </p>
       </section>

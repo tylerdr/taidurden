@@ -24,7 +24,7 @@ export function StatsDashboard() {
     <section aria-label="Live stats dashboard" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {stats.map((stat) => (
         <article key={stat.label} className="stat-card">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">{stat.label}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">{stat.label}</p>
           <p className="mt-2 font-mono text-3xl text-terminal animate-ticker">{stat.value}</p>
         </article>
       ))}

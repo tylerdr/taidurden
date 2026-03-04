@@ -60,7 +60,7 @@ export default function HomePage() {
         <ol className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
           {processPhases.map((phase, index) => (
             <li key={phase} className="rounded-lg border border-terminal/20 bg-black/25 p-4">
-              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">Step {index + 1}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">Step {index + 1}</p>
               <p className="mt-2 text-lg font-medium text-terminal">{phase}</p>
             </li>
           ))}

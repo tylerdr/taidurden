@@ -19,6 +19,13 @@ function formatNumber(n: number): string {
 export function VentureCard({ venture }: { venture: Venture }) {
   const revenueMetric = venture.metrics.find((metric) => metric.label === "Current Revenue");
   const showRevenue = revenueMetric !== undefined && revenueMetric.value !== "$0";
+  const openDomain = () => {
+    trackClick(TENANT_ID, "venture_domain", {
+      venture: venture.slug,
+      domain: venture.domain
+    });
+    window.open(`https://${venture.domain}`, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <Link
@@ -33,11 +40,13 @@ export function VentureCard({ venture }: { venture: Venture }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              trackClick(TENANT_ID, "venture_domain", {
-                venture: venture.slug,
-                domain: venture.domain,
-              });
-              window.open(`https://${venture.domain}`, '_blank', 'noopener,noreferrer');
+              openDomain();
+            }}
+            onKeyDown={(e) => {
+              if (e.key !== "Enter" && e.key !== " ") return;
+              e.preventDefault();
+              e.stopPropagation();
+              openDomain();
             }}
             role="link"
             tabIndex={0}
@@ -55,15 +64,15 @@ export function VentureCard({ venture }: { venture: Venture }) {
       <p className="text-sm text-[#b6c8c0]">{venture.blurb}</p>
       <div className="mt-auto grid grid-cols-2 gap-2 text-xs">
         <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted">Pages</p>
+          <p className="text-muted-foreground">Pages</p>
           <p className="font-mono text-terminal">{formatNumber(venture.deployedPages)}</p>
         </div>
         <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted">Lines of Code</p>
+          <p className="text-muted-foreground">Lines of Code</p>
           <p className="font-mono text-terminal">{formatNumber(venture.linesOfCode ?? 0)}</p>
         </div>
       </div>
-      {showRevenue ? <p className="font-mono text-[11px] text-muted">Revenue: {revenueMetric.value}</p> : null}
+      {showRevenue ? <p className="font-mono text-[11px] text-muted-foreground">Revenue: {revenueMetric.value}</p> : null}
     </Link>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import type { VentureStatus } from "@/lib/site";
 import { ventures } from "@/lib/site";
 import { VentureCard } from "@/components/venture-card";
@@ -25,18 +27,21 @@ export function VentureDirectory() {
           const isActive = filter === activeFilter;
 
           return (
-            <button
+            <Button
               key={filter}
               type="button"
+              variant="outline"
+              size="sm"
               onClick={() => setActiveFilter(filter)}
-              className={`rounded-full border px-4 py-2 text-sm transition ${
+              className={cn(
+                "h-auto rounded-full px-4 py-2 text-sm transition",
                 isActive
-                  ? "border-terminal bg-terminal/15 text-terminal"
-                  : "border-terminal/20 bg-black/20 text-muted hover:border-terminal/50 hover:text-terminal"
-              }`}
+                  ? "border-terminal bg-terminal/15 text-terminal hover:bg-terminal/15"
+                  : "border-terminal/20 bg-black/20 text-muted-foreground hover:border-terminal/50 hover:bg-black/20 hover:text-terminal"
+              )}
             >
               {filter}
-            </button>
+            </Button>
           );
         })}
       </div>
