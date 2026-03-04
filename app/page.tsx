@@ -40,6 +40,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="panel border-terminal/30 flex flex-col items-start gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
+        <div className="max-w-xl">
+          <h2 className="text-2xl font-semibold text-white">Want This Built For You?</h2>
+          <p className="mt-2 text-[#b8cac2]">
+            The same AI system that built this entire portfolio is available for hire. MVPs in a week. Content engines in days. No agency timelines.
+          </p>
+        </div>
+        <Link href="/services" className="inline-flex items-center gap-2 rounded-lg bg-terminal px-6 py-3 font-semibold text-black transition hover:bg-[#a8e6cf]">
+          View Services →
+        </Link>
+      </section>
+
       <section className="panel p-6 md:p-8">
         <h2 className="text-2xl font-semibold text-white">The Process</h2>
         <p className="mt-2 max-w-2xl text-[#b5c9bf]">

@@ -226,6 +226,22 @@ export default function StoryPage() {
         </ol>
       </section>
 
+      {/* Hire CTA */}
+      <section className="panel border-terminal/30 p-6 text-center md:p-10">
+        <h2 className="text-2xl font-semibold text-white md:text-3xl">
+          Ready to Stop Grinding and Start Building?
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-[#b5c9bf]">
+          Hire the machine. MVPs in a week. Content engines in days. Your idea + Tai&apos;s execution = unstoppable.
+        </p>
+        <a
+          href="/services"
+          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-terminal px-8 py-4 text-lg font-semibold text-black transition hover:bg-[#a8e6cf]"
+        >
+          View Services →
+        </a>
+      </section>
+
       {/* Closing */}
       <section className="max-w-3xl space-y-6 text-lg text-[#c8dbd2]">
         <div className="border-l-2 border-terminal/40 pl-6">
