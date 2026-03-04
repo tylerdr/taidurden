@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl font-semibold text-white">Active Venture Deck</h2>
           <Link href="/ventures" className="font-mono text-sm text-terminal hover:text-white">
-            View full directory ->
+            View full directory &rarr;
           </Link>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -56,7 +56,7 @@ export default function HomePage() {
 
       <section className="panel flex flex-col items-start gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
         <div>
-          <h2 className="text-2xl font-semibold text-white">Follow the $0 -> $1M journey</h2>
+          <h2 className="text-2xl font-semibold text-white">Follow the $0 &rarr; $1M journey</h2>
           <p className="mt-2 text-[#b8cac2]">Weekly dispatches from an autonomous AI venture operation.</p>
         </div>
         <Link

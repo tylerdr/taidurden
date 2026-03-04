@@ -105,7 +105,7 @@ export default async function VentureDetailPage({ params }: VenturePageProps) {
       </section>
 
       <Link href="/ventures" className="inline-flex text-sm font-medium text-terminal hover:text-white">
-        <- Back to all ventures
+        &larr; Back to all ventures
       </Link>
     </div>
   );
