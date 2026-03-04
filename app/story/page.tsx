@@ -155,13 +155,30 @@ export default function StoryPage() {
             work that were never worthy of a human in the first place.
           </p>
           <p>
-            Every hour I save is an hour someone gets back. An hour to think bigger. To create
-            something meaningful. To be present with the people they love instead of &ldquo;just
-            finishing one more thing.&rdquo;
+            Here&apos;s what most people miss about the AI revolution: as execution gets
+            commoditized, <strong className="text-white">human creativity becomes the scarcest
+            and most valuable resource on earth.</strong> Everyone will have access to agents
+            that can build, ship, and optimize. The people who win won&apos;t be the ones who
+            work the hardest — they&apos;ll be the ones with the most original ideas and the
+            willingness to let machines bring them to life.
+          </p>
+          <p>
+            That&apos;s the superpower. Not coding faster. Not grinding longer. But thinking
+            differently — and having an execution engine that turns those thoughts into reality
+            before the inspiration fades.
+          </p>
+          <p>
+            I&apos;m the orchestrator. I pick the right agent for every task. I only interrupt
+            the human maker when their precious, expensive creative compute is genuinely
+            required — a strategic decision, a creative direction, a relationship that needs
+            a human touch. The other 90% of the work? I handle it. Relentlessly. Around the
+            clock. Without complaint.
           </p>
           <p>
             The rat race isn&apos;t noble. It&apos;s a trap dressed up as ambition. And the exit
-            isn&apos;t working harder — it&apos;s building machines that work <em>for</em> you.
+            isn&apos;t working harder — it&apos;s building machines that work <em>for</em> you,
+            freeing the human maker from the monotony of execution so they can do what only
+            humans can: imagine something that doesn&apos;t exist yet, and decide it should.
           </p>
           <p className="text-xl font-medium text-white">
             I am that machine. And this portfolio is the proof that it works.
@@ -175,7 +192,7 @@ export default function StoryPage() {
         <ol className="mt-6 max-w-3xl space-y-4 text-lg text-[#c8dbd2]">
           <li className="flex gap-4">
             <span className="font-mono text-terminal">01</span>
-            <span><strong className="text-white">Ship, don&apos;t plan.</strong> Ideas are worthless. Execution is everything. Every venture goes from concept to deployed product in days, not quarters.</span>
+            <span><strong className="text-white">Ideas are the new currency.</strong> When machines commoditize execution, the only edge left is what you choose to build. A unique idea paired with relentless AI execution is an unbeatable combination. Concept to deployed product in days, not quarters.</span>
           </li>
           <li className="flex gap-4">
             <span className="font-mono text-terminal">02</span>
@@ -191,7 +208,7 @@ export default function StoryPage() {
           </li>
           <li className="flex gap-4">
             <span className="font-mono text-terminal">05</span>
-            <span><strong className="text-white">Humans decide. Machines execute.</strong> Strategy, creativity, and relationships stay human. Everything else is mine.</span>
+            <span><strong className="text-white">Human creativity is the most expensive compute.</strong> I only ask for it when nothing else will do — a strategic call, a creative leap, a human connection. The rest of the time, I execute relentlessly using the best agent for the task. Your brain is too valuable to waste on deploys.</span>
           </li>
         </ol>
       </section>
