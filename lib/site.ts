@@ -146,16 +146,96 @@ export const ventures: Venture[] = [
       "7-day longevity quickstart system",
       "Biomarker action plans with clinician escalation paths"
     ]
+  }),
+  ventureWithMetrics("ohio-power-picker", {
+    slug: "ohio-power-picker",
+    name: "Ohio Power Picker",
+    domain: "ohioelectricityrates.com",
+    status: "Live",
+    blurb: "Compare Ohio electricity suppliers and find lower rates in minutes. Real-time PUCO data with scam detection.",
+    description:
+      "Ohio Power Picker aggregates PUCO supplier data and makes it easy for Ohio residents to compare electricity rates, spot scams, and switch to save money. Includes a quick quiz, scam shield warnings, and per-utility rate breakdowns.",
+    buildStage: "Live Product",
+    techStack: ["Next.js 15", "TypeScript", "PUCO Data Scraper", "Tailwind CSS", "Vercel"],
+    timeline: [
+      { date: "2026-03-04", event: "Full product live with rate comparison, scam shield, blog, and analytics dashboard." }
+    ],
+    screenshot: "/screenshots/ohio-power-picker.svg",
+    examples: [
+      "Real-time supplier rate comparison by utility zone",
+      "Scam Shield flagging predatory suppliers",
+      "Quick quiz to match users with best plan"
+    ]
+  }),
+  ventureWithMetrics("getfoundinchat", {
+    slug: "getfoundinchat",
+    name: "GetFoundInChat",
+    domain: "getfoundinchat.com",
+    status: "Live",
+    blurb: "Get cited by ChatGPT, Perplexity, and Gemini. AI visibility audits and citation-ready content.",
+    description:
+      "GetFoundInChat helps businesses get discovered in AI search engines. We audit your AI visibility, build citation-ready content, and monitor your presence across ChatGPT, Perplexity, Gemini, and other AI answer engines.",
+    buildStage: "Service Site",
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "AI SEO Tooling"],
+    timeline: [
+      { date: "2026-03-04", event: "Service site launched with AI visibility audit offering and content strategy." }
+    ],
+    screenshot: "/screenshots/getfoundinchat.svg",
+    examples: [
+      "AI visibility audits across ChatGPT, Perplexity, Gemini",
+      "Citation-ready content optimization",
+      "AI search engine monitoring and reporting"
+    ]
+  }),
+  ventureWithMetrics("ogfixer", {
+    slug: "ogfixer",
+    name: "OG Fixer",
+    domain: "ogfixer.com",
+    status: "Live",
+    blurb: "See how your links look when shared on Twitter, LinkedIn, Slack, and Discord. Generate beautiful OG images in one click.",
+    description:
+      "OG Fixer previews how your URLs render across social platforms and messaging apps. Instantly spot broken share cards, missing meta tags, and ugly previews — then generate AI-powered OG images to fix them.",
+    buildStage: "Live Tool",
+    techStack: ["Next.js 15", "TypeScript", "Meta Tag Parser", "AI Image Generation", "Vercel"],
+    timeline: [
+      { date: "2026-03-04", event: "Tool launched with multi-platform preview and AI OG image generation." }
+    ],
+    screenshot: "/screenshots/ogfixer.svg",
+    examples: [
+      "Multi-platform link preview (Twitter, LinkedIn, Slack, Discord)",
+      "Broken meta tag detection and fix suggestions",
+      "AI-powered OG image generation in one click"
+    ]
+  }),
+  ventureWithMetrics("aiopsguide", {
+    slug: "aiopsguide",
+    name: "AI Ops Guide",
+    domain: "aiopsguide.com",
+    status: "Live",
+    blurb: "Get a complete AI operations audit in 72 hours. Process mapping, automation scoring, and a prioritized 90-day roadmap.",
+    description:
+      "AI Ops Guide delivers rapid AI operations audits for businesses. We map your processes, score 25+ automation opportunities, and deliver a prioritized 90-day roadmap to implement AI across your operations.",
+    buildStage: "Service Site",
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "AI Audit Framework"],
+    timeline: [
+      { date: "2026-03-04", event: "Service site launched with 72-hour AI audit offering and process mapping." }
+    ],
+    screenshot: "/screenshots/aiopsguide.svg",
+    examples: [
+      "72-hour AI operations audit",
+      "25+ automation opportunity scoring",
+      "Prioritized 90-day implementation roadmap"
+    ]
   })
 ];
 
 export const processPhases = [
-  "Idea",
-  "Research",
-  "Build",
-  "Deploy",
-  "Optimize",
-  "Scale"
+  "Intake",
+  "Vetting",
+  "Building",
+  "Optimization",
+  "Scaling",
+  "Sunset"
 ] as const;
 
 export const storyTimeline = [
@@ -163,6 +243,6 @@ export const storyTimeline = [
   { date: "2026-02-18", event: "Autonomous execution mandate defined. Idea pipeline and scoring system built." },
   { date: "2026-02-25", event: "AI Business Blueprint built — React Flow canvas, entity hierarchy, AI generation. FrameShift (later Shreddify) MVP shipped." },
   { date: "2026-03-01", event: "Multi-agent ops infrastructure activated. Agent swarm system with parallel coding, auto-review, and monitoring." },
-  { date: "2026-03-03", event: "PeakedLabs built — biohacking telehealth directory with 25 content pages." },
-  { date: "2026-03-04", event: "ProtocolRank shipped — 47 pages of ranked health protocols. Shreddify rebranded and polished. Tai Durden portfolio site launched. All ventures deployed to production." }
+  { date: "2026-03-03", event: "PeakedLabs built — biohacking telehealth directory with 25 content pages. AliveLongevity launched." },
+  { date: "2026-03-04", event: "Massive shipping day — ProtocolRank (106 pages), Shreddify rebrand, Ohio Power Picker, GetFoundInChat, OG Fixer, AI Ops Guide all deployed. Portfolio hits 9 live ventures." }
 ];

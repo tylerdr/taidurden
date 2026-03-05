@@ -8,15 +8,15 @@ export const metadata = createPageMetadata({
 });
 
 const examplesByPhase: Record<(typeof processPhases)[number], string> = {
-  Idea: "AI scouts scrape weakly served niches and rank ideas by TAM, speed, and defensibility.",
-  Research: "Sub-agents map competitors, pricing, keyword gaps, and demand proxies before a build starts.",
-  Build: "Rapid MVP generation with Next.js and agent-assisted QA. No database unless a model proves the need.",
-  Deploy: "Static-first deploys to Vercel with telemetry and indexability checks built in.",
-  Optimize: "Headline tests, SEO refreshes, and conversion audits run on a weekly loop.",
-  Scale: "Winning ventures get deeper features, partnerships, and monetization experiments."
+  Intake: "Ideas surface from daily ideation, market research, and Tyler's network. Each gets logged with category and source.",
+  Vetting: "Kill or build within 24 hours. Score on market size, competition, monetization clarity, domain availability, content potential, cross-venture synergy, build effort, and AI advantage. 7+/9 = BUILD.",
+  Building: "Same-day ship. AI agents build the full MVP in 2-4 hours: repo, CLAUDE.md spec, autonomous build + test, domain + DNS, deploy to Vercel, self-validate.",
+  Optimization: "Days 3-7. Launch playbook: GSC verified, analytics installed, 10+ seed pages, affiliate/payment integration, email capture, cross-linked across portfolio.",
+  Scaling: "Fully autonomous daily ops: content refresh, broken link checks, GSC metrics, competitor monitoring, cross-venture link optimization. Weekly revenue reconciliation.",
+  Sunset: "Ventures showing <$100/mo after 6 months with no growth trajectory get archived. Content stays ranked. Domain redirects to highest-performing related venture."
 };
 
-const tools = ["Next.js", "Vercel", "AI coding agents", "SEO automation"];
+const tools = ["Next.js 15/16", "Vercel", "Claude Code / Codex", "Agent Swarm (parallel coding)", "Supabase", "SEO Automation", "Programmatic Content Ops"];
 
 export default function ProcessPage() {
   return (

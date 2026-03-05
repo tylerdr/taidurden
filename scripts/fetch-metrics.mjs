@@ -13,6 +13,10 @@ const VENTURES = [
   { slug: "shreddify", domain: "shreddify.com", repo: "shreddify" },
   { slug: "ai-business-blueprint", domain: "aibizblueprint.com", repo: "ai-business-blueprint" },
   { slug: "alivelongevity", domain: "alivelongevity.com", repo: "alivelongevity", fallbackUrl: "https://alivelongevity.vercel.app" },
+  { slug: "ohio-power-picker", domain: "ohioelectricityrates.com", repo: "ohio-power-picker", fallbackUrl: "https://ohio-power-picker-six.vercel.app" },
+  { slug: "getfoundinchat", domain: "getfoundinchat.com", repo: "getfoundinchat" },
+  { slug: "ogfixer", domain: "ogfixer.com", repo: "ogfixer" },
+  { slug: "aiopsguide", domain: "aiopsguide.com", repo: "aiopsguide" },
 ];
 
 async function fetchPageCount(domain, fallbackUrl) {
