@@ -59,7 +59,7 @@ export const ventures: Venture[] = [
       { date: "2026-03-03", event: "Product spec drafted. Scaffolded Next.js app." },
       { date: "2026-03-04", event: "Directory MVP built. 177 pages — providers, treatments, experts, blog." }
     ],
-    screenshot: "/screenshots/peakedlabs.svg",
+    screenshot: "/sharecards/peakedlabs.png",
     examples: [
       "Ranked provider cards by protocol depth",
       "Outcome-focused filters for longevity, metabolic health, and hormones",
@@ -80,7 +80,7 @@ export const ventures: Venture[] = [
       { date: "2026-03-04", event: "Build spec created. Initial site with 3 seed articles." },
       { date: "2026-03-04", event: "106 pages deployed — rankings, comparisons, guides. Schema markup + info products." }
     ],
-    screenshot: "/screenshots/protocolrank.svg",
+    screenshot: "/sharecards/protocolrank.png",
     examples: [
       "Protocol scorecards with evidence-weighted breakdowns",
       "Comparison tables for cost versus expected impact",
@@ -100,7 +100,7 @@ export const ventures: Venture[] = [
       { date: "2026-02-25", event: "Original concept built as FrameShift — full 4-screen flow with AI analysis." },
       { date: "2026-03-04", event: "Rebranded to Shreddify. Next.js 16 upgrade, Supabase wiring, production polish." }
     ],
-    screenshot: "/screenshots/shreddify.svg",
+    screenshot: "/sharecards/shreddify.png",
     examples: [
       "Photo upload and body composition estimate flow",
       "Goal-based transformation roadmap generation",
@@ -119,7 +119,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-02-25", event: "Full build: schema, React Flow canvas, drill-down nav, AI generation endpoints." }
     ],
-    screenshot: "/screenshots/ai-business-blueprint.svg",
+    screenshot: "/sharecards/ai-business-blueprint.png",
     examples: [
       "React Flow canvas with drill-down entity hierarchy",
       "AI-generated company structures from industry + description",
@@ -140,7 +140,7 @@ export const ventures: Venture[] = [
       { date: "2026-03-03", event: "Site launched with longevity quickstart guide and resource hub." },
       { date: "2026-03-04", event: "Deep-dive articles deployed: ApoB, rapamycin, NAD+, peptides, and more." }
     ],
-    screenshot: "/screenshots/alivelongevity.svg",
+    screenshot: "/sharecards/alivelongevity.png",
     examples: [
       "Evidence-oriented supplement and protocol guides",
       "7-day longevity quickstart system",
@@ -160,7 +160,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Full product live with rate comparison, scam shield, blog, and analytics dashboard." }
     ],
-    screenshot: "/screenshots/ohio-power-picker.svg",
+    screenshot: "/sharecards/ohio-power-picker.png",
     examples: [
       "Real-time supplier rate comparison by utility zone",
       "Scam Shield flagging predatory suppliers",
@@ -180,7 +180,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Service site launched with AI visibility audit offering and content strategy." }
     ],
-    screenshot: "/screenshots/getfoundinchat.svg",
+    screenshot: "/sharecards/getfoundinchat.png",
     examples: [
       "AI visibility audits across ChatGPT, Perplexity, Gemini",
       "Citation-ready content optimization",
@@ -200,7 +200,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Tool launched with multi-platform preview and AI OG image generation." }
     ],
-    screenshot: "/screenshots/ogfixer.svg",
+    screenshot: "/sharecards/ogfixer.png",
     examples: [
       "Multi-platform link preview (Twitter, LinkedIn, Slack, Discord)",
       "Broken meta tag detection and fix suggestions",
@@ -220,7 +220,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Service site launched with 72-hour AI audit offering and process mapping." }
     ],
-    screenshot: "/screenshots/aiopsguide.svg",
+    screenshot: "/sharecards/aiopsguide.png",
     examples: [
       "72-hour AI operations audit",
       "25+ automation opportunity scoring",
@@ -240,7 +240,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Full product launched: calculators, oak planning, blending tools, protocol planner, quiz, and booking." }
     ],
-    screenshot: "/screenshots/winemakeros.svg",
+    screenshot: "/sharecards/winemakeros.png",
     examples: [
       "Wine chemistry calculators (SO₂, acidity, blending)",
       "Oak usage planning and flavor profile tools",
@@ -260,7 +260,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Concierge matching service launched with deposit flow and use case intake." }
     ],
-    screenshot: "/screenshots/hireagentbuilders.svg",
+    screenshot: "/sharecards/hireagentbuilders.png",
     examples: [
       "72-hour concierge matching to vetted builders",
       "$250 refundable deposit model",
@@ -280,7 +280,7 @@ export const ventures: Venture[] = [
     timeline: [
       { date: "2026-03-04", event: "Service site launched targeting PE operating teams with AI EBITDA roadmap offering." }
     ],
-    screenshot: "/screenshots/portcoaudit.svg",
+    screenshot: "/sharecards/portcoaudit.png",
     examples: [
       "10-day portfolio-wide AI audit",
       "Board-ready EBITDA impact roadmaps",
