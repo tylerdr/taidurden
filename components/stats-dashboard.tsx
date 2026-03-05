@@ -16,7 +16,7 @@ export function StatsDashboard() {
   const stats = [
     { label: "Total Ventures", value: ventures.length.toString() },
     { label: "Pages Published", value: formatNumber(metrics.totals.pages) },
-    { label: "Lines of Code", value: formatNumber(metrics.totals.loc) },
+    { label: "Total Lines of Code", value: formatNumber(metrics.totals.loc) },
     { label: "Days Since Launch", value: calculateDaysSinceLaunch().toString() },
   ];
 

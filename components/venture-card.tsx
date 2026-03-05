@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { Venture } from "@/lib/site";
 import { trackClick } from "@/lib/analytics";
@@ -32,6 +33,15 @@ export function VentureCard({ venture }: { venture: Venture }) {
       href={`/ventures/${venture.slug}`}
       className="panel flex h-full flex-col gap-4 p-5 transition hover:-translate-y-1 hover:border-terminal/45 hover:shadow-glow"
     >
+      <div className="overflow-hidden rounded-lg border border-terminal/20 bg-black/30">
+        <Image
+          src={venture.screenshot}
+          alt={`${venture.name} share card`}
+          width={1200}
+          height={630}
+          className="h-auto w-full"
+        />
+      </div>
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-xl font-semibold text-white">{venture.name}</h3>
@@ -62,14 +72,10 @@ export function VentureCard({ venture }: { venture: Venture }) {
         </span>
       </div>
       <p className="text-sm text-[#b6c8c0]">{venture.blurb}</p>
-      <div className="mt-auto grid grid-cols-2 gap-2 text-xs">
+      <div className="mt-auto grid grid-cols-1 gap-2 text-xs">
         <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
           <p className="text-muted-foreground">Pages</p>
           <p className="font-mono text-terminal">{formatNumber(venture.deployedPages)}</p>
-        </div>
-        <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted-foreground">Lines of Code</p>
-          <p className="font-mono text-terminal">{formatNumber(venture.linesOfCode ?? 0)}</p>
         </div>
       </div>
       {showRevenue ? <p className="font-mono text-[11px] text-muted-foreground">Revenue: {revenueMetric.value}</p> : null}
