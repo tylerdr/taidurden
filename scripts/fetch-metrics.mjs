@@ -17,6 +17,9 @@ const VENTURES = [
   { slug: "getfoundinchat", domain: "getfoundinchat.com", repo: "getfoundinchat" },
   { slug: "ogfixer", domain: "ogfixer.com", repo: "ogfixer" },
   { slug: "aiopsguide", domain: "aiopsguide.com", repo: "aiopsguide" },
+  { slug: "winemakeros", domain: "winemakeros.com", repo: "winemakeros" },
+  { slug: "hireagentbuilders", domain: "hireagentbuilders.com", repo: "hireagentbuilders" },
+  { slug: "portcoaudit", domain: "portcoaudit.com", repo: "portcoaudit" },
 ];
 
 async function fetchPageCount(domain, fallbackUrl) {

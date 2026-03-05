@@ -6,11 +6,11 @@
     },
     "protocolrank": {
       "pages": 106,
-      "loc": 38464
+      "loc": 38471
     },
     "shreddify": {
       "pages": 52,
-      "loc": 8462
+      "loc": 8905
     },
     "ai-business-blueprint": {
       "pages": 3,
@@ -18,11 +18,11 @@
     },
     "alivelongevity": {
       "pages": 77,
-      "loc": 14550
+      "loc": 14557
     },
     "ohio-power-picker": {
       "pages": 21,
-      "loc": 12747
+      "loc": 13295
     },
     "getfoundinchat": {
       "pages": 0,
@@ -35,11 +35,23 @@
     "aiopsguide": {
       "pages": 0,
       "loc": 8335
+    },
+    "winemakeros": {
+      "pages": 0,
+      "loc": 3170
+    },
+    "hireagentbuilders": {
+      "pages": 0,
+      "loc": 2250
+    },
+    "portcoaudit": {
+      "pages": 0,
+      "loc": 2181
     }
   },
   "totals": {
     "pages": 436,
-    "loc": 141812
+    "loc": 150494
   },
-  "generatedAt": "2026-03-05T05:38:40.035Z"
+  "generatedAt": "2026-03-05T06:06:21.673Z"
 }

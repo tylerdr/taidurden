@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#060B0E"/>
+  <rect x="40" y="40" width="1120" height="550" rx="16" fill="#0F161A" stroke="#8DFF9D" stroke-opacity="0.35"/>
+  <text x="70" y="100" fill="#8DFF9D" font-family="monospace" font-size="26">WINEMAKEROS // CELLAR TOOLS</text>
+  <rect x="70" y="130" width="520" height="200" rx="10" fill="#0A1114" stroke="#8DFF9D" stroke-opacity="0.2"/>
+  <rect x="620" y="130" width="510" height="200" rx="10" fill="#0A1114" stroke="#8DFF9D" stroke-opacity="0.2"/>
+  <rect x="70" y="350" width="340" height="210" rx="10" fill="#0A1114" stroke="#8DFF9D" stroke-opacity="0.2"/>
+  <rect x="430" y="350" width="340" height="210" rx="10" fill="#0A1114" stroke="#8DFF9D" stroke-opacity="0.2"/>
+  <rect x="790" y="350" width="340" height="210" rx="10" fill="#0A1114" stroke="#8DFF9D" stroke-opacity="0.2"/>
+  <text x="90" y="190" fill="#C6D8CF" font-family="monospace" font-size="20">Tools</text>
+  <text x="90" y="225" fill="#8DFF9D" font-family="monospace" font-size="40">5</text>
+  <text x="640" y="190" fill="#C6D8CF" font-family="monospace" font-size="20">Calculators</text>
+  <text x="640" y="225" fill="#8DFF9D" font-family="monospace" font-size="40">LIVE</text>
+</svg>

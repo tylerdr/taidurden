@@ -226,6 +226,66 @@ export const ventures: Venture[] = [
       "25+ automation opportunity scoring",
       "Prioritized 90-day implementation roadmap"
     ]
+  }),
+  ventureWithMetrics("winemakeros", {
+    slug: "winemakeros",
+    name: "WinemakerOS",
+    domain: "winemakeros.com",
+    status: "Live",
+    blurb: "Every tool a winemaker needs. One platform. Chemistry calculators, oak planning, blending utilities, and cellar references.",
+    description:
+      "WinemakerOS brings winery operations tools together: chemistry calculators, oak usage planning, blending utilities, flavor profile management, protocol planning, and practical cellar references — all in one platform built for working winemakers.",
+    buildStage: "Live Product",
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Chemistry Engine", "Vercel"],
+    timeline: [
+      { date: "2026-03-04", event: "Full product launched: calculators, oak planning, blending tools, protocol planner, quiz, and booking." }
+    ],
+    screenshot: "/screenshots/winemakeros.svg",
+    examples: [
+      "Wine chemistry calculators (SO₂, acidity, blending)",
+      "Oak usage planning and flavor profile tools",
+      "Winery operations diagnostic quiz"
+    ]
+  }),
+  ventureWithMetrics("hireagentbuilders", {
+    slug: "hireagentbuilders",
+    name: "HireAgentBuilders",
+    domain: "hireagentbuilders.com",
+    status: "Live",
+    blurb: "Place a $250 refundable deposit and get 3 vetted AI agent builders matched to your use case in 72 hours.",
+    description:
+      "HireAgentBuilders is a curated concierge matching service for companies that need AI agents built right. Submit your use case, place a refundable deposit, and get matched with 3 vetted AI agent builders within 72 hours.",
+    buildStage: "Service Site",
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Vercel"],
+    timeline: [
+      { date: "2026-03-04", event: "Concierge matching service launched with deposit flow and use case intake." }
+    ],
+    screenshot: "/screenshots/hireagentbuilders.svg",
+    examples: [
+      "72-hour concierge matching to vetted builders",
+      "$250 refundable deposit model",
+      "Use-case-specific AI agent builder curation"
+    ]
+  }),
+  ventureWithMetrics("portcoaudit", {
+    slug: "portcoaudit",
+    name: "PortCoAudit AI",
+    domain: "portcoaudit.com",
+    status: "Live",
+    blurb: "Board-ready AI EBITDA roadmaps for PE operating teams. Across portfolio companies in 10 business days.",
+    description:
+      "PortCoAudit AI gives private equity operating teams a board-ready AI EBITDA roadmap across their portfolio companies in 10 business days. We identify AI automation opportunities that directly impact EBITDA and deliver implementation-ready plans.",
+    buildStage: "Service Site",
+    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Vercel"],
+    timeline: [
+      { date: "2026-03-04", event: "Service site launched targeting PE operating teams with AI EBITDA roadmap offering." }
+    ],
+    screenshot: "/screenshots/portcoaudit.svg",
+    examples: [
+      "10-day portfolio-wide AI audit",
+      "Board-ready EBITDA impact roadmaps",
+      "Cross-portfolio AI opportunity identification"
+    ]
   })
 ];
 
@@ -244,5 +304,5 @@ export const storyTimeline = [
   { date: "2026-02-25", event: "AI Business Blueprint built — React Flow canvas, entity hierarchy, AI generation. FrameShift (later Shreddify) MVP shipped." },
   { date: "2026-03-01", event: "Multi-agent ops infrastructure activated. Agent swarm system with parallel coding, auto-review, and monitoring." },
   { date: "2026-03-03", event: "PeakedLabs built — biohacking telehealth directory with 25 content pages. AliveLongevity launched." },
-  { date: "2026-03-04", event: "Massive shipping day — ProtocolRank (106 pages), Shreddify rebrand, Ohio Power Picker, GetFoundInChat, OG Fixer, AI Ops Guide all deployed. Portfolio hits 9 live ventures." }
+  { date: "2026-03-04", event: "Massive shipping day — ProtocolRank (106 pages), Shreddify rebrand, Ohio Power Picker, GetFoundInChat, OG Fixer, AI Ops Guide, WinemakerOS, HireAgentBuilders, and PortCoAudit AI all deployed. Portfolio hits 12 live ventures." }
 ];
