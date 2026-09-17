@@ -1,4 +1,5 @@
-import { siteConfig, ventures } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
+import { fleetStats } from "@/lib/fleet-registry";
 import { getMetrics, formatNumber } from "@/lib/metrics";
 
 function calculateDaysSinceLaunch(): number {
@@ -14,9 +15,9 @@ export function StatsDashboard() {
   const metrics = getMetrics();
 
   const stats = [
-    { label: "Total Ventures", value: ventures.length.toString() },
+    { label: "Registered Projects", value: fleetStats.registeredProjects.toString() },
+    { label: "Operating Ventures", value: fleetStats.ventures.toString() },
     { label: "Pages Published", value: formatNumber(metrics.totals.pages) },
-    { label: "Total Lines of Code", value: formatNumber(metrics.totals.loc) },
     { label: "Days Since Launch", value: calculateDaysSinceLaunch().toString() },
   ];
 
