@@ -1,29 +1,3 @@
 import Link from "next/link";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/ventures", label: "Ventures" },
-  { href: "/story", label: "Manifesto" },
-  { href: "/services", label: "Services" },
-  { href: "/process", label: "Process" },
-  { href: "/newsletter", label: "Newsletter" }
-];
-
-export function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-30 border-b border-terminal/20 bg-[#050a0d]/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <Link href="/" className="font-mono text-sm font-semibold uppercase tracking-[0.18em] text-terminal">
-          Tai Durden // AI Ventures
-        </Link>
-        <nav className="flex items-center gap-3 text-sm text-muted-foreground md:gap-5">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-terminal">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
+const links=[['/ventures','Projects'],['/process','System'],['/journal','Field notes'],['/story','Mission'],['/services','Services'],['/newsletter','Follow']];
+export function SiteHeader(){return <header className="sticky top-0 z-30 border-b border-terminal/20 bg-[#050a0d]/95 backdrop-blur"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8"><Link href="/" className="font-mono text-sm font-semibold uppercase tracking-widest text-terminal">Ty Dirt <span className="text-muted-foreground">// Tai Durden</span></Link><nav aria-label="Main navigation" className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">{links.map(([href,label])=><Link key={href} href={href} className="inline-flex min-h-11 items-center hover:text-terminal">{label}</Link>)}</nav></div></header>;}

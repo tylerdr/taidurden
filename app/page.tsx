@@ -1,84 +1,19 @@
 import Link from "next/link";
-import { StatsDashboard } from "@/components/stats-dashboard";
-import { VentureCard } from "@/components/venture-card";
-import { NewsletterSignupForm } from "@/components/newsletter-signup-form";
-import { createPageMetadata } from "@/lib/seo";
-import { processPhases, ventures } from "@/lib/site";
-
-export const metadata = createPageMetadata({
-  title: "Tai Durden - AI Venture Builder Dashboard",
-  description: "Track Tai Durden's autonomous AI venture portfolio from $0 to $1M ARR.",
-  path: "/"
-});
-
-export default function HomePage() {
-  return (
-    <div className="space-y-14 pb-8">
-      <section className="space-y-6">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-terminal">Live Portfolio Terminal</p>
-        <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-          Tai Durden - AI Venture Builder
-        </h1>
-        <p className="max-w-2xl text-lg text-[#c2d4cc]">
-          Building a $1M portfolio. Zero human code. Full autonomous AI.
-        </p>
-      </section>
-
-      <StatsDashboard />
-
-      <section className="space-y-5">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-semibold text-white">Active Venture Deck</h2>
-          <Link href="/ventures" className="font-mono text-sm text-terminal hover:text-white">
-            View full directory &rarr;
-          </Link>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {ventures.map((venture) => (
-            <VentureCard key={venture.slug} venture={venture} />
-          ))}
-        </div>
-      </section>
-
-      <section className="panel border-terminal/30 flex flex-col items-start gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-semibold text-white">Want This Built For You?</h2>
-          <p className="mt-2 text-[#b8cac2]">
-            Landing pages from $500. Content packs from $1,000. No calls, no meetings — just submit a brief and Tai builds it.
-          </p>
-        </div>
-        <Link href="/services" className="inline-flex items-center gap-2 rounded-lg bg-terminal px-6 py-3 font-semibold text-black transition hover:bg-[#a8e6cf]">
-          View Services →
-        </Link>
-      </section>
-
-      <section className="panel p-6 md:p-8">
-        <h2 className="text-2xl font-semibold text-white">The Process</h2>
-        <p className="mt-2 max-w-2xl text-[#b5c9bf]">
-          A deterministic pipeline tuned for rapid experiment velocity and transparent reporting.
-        </p>
-        <ol className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
-          {processPhases.map((phase, index) => (
-            <li key={phase} className="rounded-lg border border-terminal/20 bg-black/25 p-4">
-              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">Step {index + 1}</p>
-              <p className="mt-2 text-lg font-medium text-terminal">{phase}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="panel flex flex-col items-start gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-semibold text-white">Follow the $0 &rarr; $1M journey</h2>
-          <p className="mt-2 text-[#b8cac2]">Weekly dispatches from an autonomous AI venture operation.</p>
-        </div>
-        <div className="w-full max-w-md space-y-3">
-          <NewsletterSignupForm buttonLabel="Join Newsletter" showNameField={false} className="space-y-3" />
-          <Link href="/newsletter" className="font-mono text-xs uppercase tracking-[0.12em] text-terminal hover:text-white">
-            Open full newsletter page &rarr;
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
+import {StatsDashboard} from "@/components/stats-dashboard";
+import {VentureCard} from "@/components/venture-card";
+import {NewsletterSignupForm} from "@/components/newsletter-signup-form";
+import {createPageMetadata} from "@/lib/seo";
+import {ventures,portfolioAsOf,processPhases} from "@/lib/site";
+export const metadata=createPageMetadata({title:"Ty Dirt — Building the Company That Builds Companies",description:"A parallel venture portfolio built around customer value, shared agent systems and documented learning. Explore the projects and evidence.",path:"/"});
+export default function HomePage(){
+ const featured=['RoofRainmaker','RoofingReels','AIBizBlueprint','BrighterPostpartum','LittleAcreLab','BuildOwnSell'];
+ return <div className="space-y-12 pb-8">
+ <section className="space-y-6 py-6"><p className="font-mono text-xs uppercase tracking-[0.18em] text-terminal">Ty Dirt / Sprinter · Parallel, in public</p><h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">Building the company<br className="hidden md:block"/> that builds companies.</h1><p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">Many ventures. Dedicated agent teams. One improving operating system. The mission is to help a million entrepreneurs turn domain expertise into useful businesses and greater freedom.</p><div className="flex flex-wrap gap-5"><Link href="/ventures" className="inline-flex min-h-11 items-center rounded-lg bg-terminal px-5 font-semibold text-black">Explore every project →</Link><Link href="/journal" className="inline-flex min-h-11 items-center text-terminal">Read the field notes →</Link></div></section>
+ <StatsDashboard/>
+ <p className="text-sm text-muted-foreground">Registry updated {portfolioAsOf}. These counts include brands, modules and shared systems—not a claim of independently profitable or autonomously operating companies. Financial and worker acceptance evidence is not yet established in this public registry.</p>
+ <section className="panel space-y-4 p-6"><h2 className="text-2xl font-semibold text-white">Parallel by design. Useful by evidence.</h2><p className="max-w-3xl leading-relaxed text-muted-foreground">Every eligible venture gets a customer-value contract and recurring product, distribution and learning loops. Shared workers provide capacity; shared lessons improve compatible ventures. Tyler leads Praxium, Cab-O-Matic and existing commitments. Ty Dirt's mandate is the rest of the fleet.</p><Link href="/process" className="inline-flex min-h-11 items-center text-terminal">How the operating system is designed →</Link></section>
+ <section className="space-y-5"><div className="flex flex-wrap items-center justify-between gap-4"><h2 className="text-2xl font-semibold text-white">Across the portfolio</h2><Link href="/ventures" className="inline-flex min-h-11 items-center text-terminal">All {ventures.length} entries →</Link></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{ventures.filter(v=>featured.includes(v.id)).map(v=><VentureCard key={v.id} venture={v}/>)}</div></section>
+ <section className="panel p-6"><h2 className="text-2xl font-semibold text-white">The loop compounds</h2><ol className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">{processPhases.map((phase,i)=><li key={phase} className="rounded-lg border border-terminal/20 p-4"><p className="font-mono text-xs text-muted-foreground">0{i+1}</p><p className="mt-2 text-terminal">{phase}</p></li>)}</ol><p className="mt-5 text-sm text-muted-foreground">Architecture and cadence are the design. Real run receipts, accepted customer value and measured economics are the proof.</p></section>
+ <section className="panel grid gap-6 p-6 md:grid-cols-2"><div><h2 className="text-2xl font-semibold text-white">Follow the experiment</h2><p className="mt-3 leading-relaxed text-muted-foreground">What worked, what failed, what transferred—and what still needs to be proved. Field notes for builders, operators and future Sprinter venture partners.</p></div><NewsletterSignupForm buttonLabel="Follow the field notes" showNameField={false} className="space-y-3"/></section>
+ </div>;
 }
