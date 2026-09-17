@@ -11,7 +11,9 @@ test('projection contains only public allowlisted keys',()=>{const keys=['id','s
 test('only HTTPS registered links',()=>{for(const e of data.entries)if(e.publicUrl){const u=new URL(e.publicUrl);assert.equal(u.protocol,'https:');assert.equal(u.username,'');assert.equal(u.password,'');}});
 test('proposed value claims are explicitly labeled',()=>{assert.match(data.notice,/proposed acceptance targets/);assert.ok(data.entries.every(e=>e.valueEvent&&e.definitionStatus));});
 test('homepage removes unsupported autonomy assertion',()=>{const home=read('app/page.tsx');assert.doesNotMatch(home,/Full autonomous AI|Zero human code|Live Portfolio Terminal/);assert.match(home,/Not|not/);});
-test('cards do not render invented screenshots or pages',()=>{const card=read('components/venture-card.tsx');assert.doesNotMatch(card,/<Image|deployedPages|animate-pulse/);});
+test('cards use only labeled existing art, not invented screenshots or metrics',()=>{const card=read('components/venture-card.tsx');assert.doesNotMatch(card,/deployedPages|animate-pulse/);assert.match(card,/legacyArt/);assert.match(card,/not a current product screenshot/);});
 test('directory filters expose pressed state',()=>assert.match(read('components/venture-directory.tsx'),/aria-pressed/));
 test('journal distinguishes synthetic tests and running businesses',()=>assert.match(read('app/journal/page.tsx'),/does not prove/));
 test('existing subscribe route is not replaced by this change',()=>assert.match(read('app/page.tsx'),/NewsletterSignupForm/));
+
+test('sitemap derives all registered routes',()=>{assert.match(read('app/sitemap.ts'),/ventures.map/);assert.match(read('app/sitemap.ts'),/journal/);});
