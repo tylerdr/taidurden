@@ -1,84 +1,14 @@
-"use client";
-
 import Image from "next/image";
+import {legacyArt} from "@/lib/legacy-art";
 import Link from "next/link";
-import type { Venture } from "@/lib/site";
-import { trackClick } from "@/lib/analytics";
-import { TENANT_ID } from "@/components/analytics-provider";
-
-const statusStyle: Record<Venture["status"], string> = {
-  Live: "border-emerald-400/45 bg-emerald-400/15 text-emerald-200",
-  Building: "border-emerald-400/45 bg-emerald-400/15 text-emerald-200",
-  Planned: "border-slate-400/30 bg-slate-300/10 text-slate-300"
-};
-
-function formatNumber(n: number): string {
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
-  return n.toString();
-}
-
-export function VentureCard({ venture }: { venture: Venture }) {
-  const revenueMetric = venture.metrics.find((metric) => metric.label === "Current Revenue");
-  const showRevenue = revenueMetric !== undefined && revenueMetric.value !== "$0";
-  const openDomain = () => {
-    trackClick(TENANT_ID, "venture_domain", {
-      venture: venture.slug,
-      domain: venture.domain
-    });
-    window.open(`https://${venture.domain}`, "_blank", "noopener,noreferrer");
-  };
-
-  return (
-    <Link
-      href={`/ventures/${venture.slug}`}
-      className="panel flex h-full flex-col gap-4 p-5 transition hover:-translate-y-1 hover:border-terminal/45 hover:shadow-glow"
-    >
-      <div className="overflow-hidden rounded-lg border border-terminal/20 bg-black/30">
-        <Image
-          src={venture.screenshot}
-          alt={`${venture.name} share card`}
-          width={1200}
-          height={630}
-          className="h-auto w-full"
-        />
-      </div>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="text-xl font-semibold text-white">{venture.name}</h3>
-          <span
-            className="font-mono text-xs uppercase tracking-[0.16em] text-terminal hover:text-white transition"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              openDomain();
-            }}
-            onKeyDown={(e) => {
-              if (e.key !== "Enter" && e.key !== " ") return;
-              e.preventDefault();
-              e.stopPropagation();
-              openDomain();
-            }}
-            role="link"
-            tabIndex={0}
-          >
-            {venture.domain} ↗
-          </span>
-        </div>
-        <span
-          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold ${statusStyle[venture.status]}`}
-        >
-          <span className="h-1.5 w-1.5 animate-pulseDot rounded-full bg-current" />
-          {venture.status}
-        </span>
-      </div>
-      <p className="text-sm text-[#b6c8c0]">{venture.blurb}</p>
-      <div className="mt-auto grid grid-cols-1 gap-2 text-xs">
-        <div className="rounded-lg border border-terminal/10 bg-black/20 p-2">
-          <p className="text-muted-foreground">Pages</p>
-          <p className="font-mono text-terminal">{formatNumber(venture.deployedPages)}</p>
-        </div>
-      </div>
-      {showRevenue ? <p className="font-mono text-[11px] text-muted-foreground">Revenue: {revenueMetric.value}</p> : null}
-    </Link>
-  );
+import {modeLabels,type Venture} from "@/lib/site";
+export function VentureCard({venture}:{venture:Venture}) {
+  const art=legacyArt(venture.slug);
+  return <article className="panel flex h-full min-w-0 flex-col gap-4 p-5" data-venture={venture.slug}>
+    {art&&<figure className="overflow-hidden rounded-lg border border-terminal/20"><Image src={art} alt={`${venture.name} historical brand artwork`} width={1200} height={630} className="h-auto w-full"/><figcaption className="px-3 py-2 text-[11px] text-muted-foreground">Existing brand artwork · not a current product screenshot</figcaption></figure>}
+    <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-muted-foreground"><span>{venture.family}</span><span className="rounded-full border border-terminal/20 px-3 py-1">{modeLabels[venture.mode]}</span></div>
+    <h3 className="text-xl font-semibold text-white"><Link className="hover:text-terminal" href={`/ventures/${venture.slug}`}>{venture.name}</Link></h3>
+    <div className="space-y-2"><p className="font-mono text-[11px] uppercase tracking-wider text-terminal">{venture.definitionStatus==='needs-source-reconciliation'?'Next definition task':'Proposed value event'}</p><p className="text-sm leading-relaxed text-muted-foreground">{venture.valueEvent}</p></div>
+    <Link href={`/ventures/${venture.slug}`} className="mt-auto inline-flex min-h-11 items-center text-sm text-terminal hover:text-white">View operating contract →</Link>
+  </article>;
 }

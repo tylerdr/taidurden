@@ -1,33 +1,5 @@
-import { siteConfig, ventures } from "@/lib/site";
-import { getMetrics, formatNumber } from "@/lib/metrics";
-
-function calculateDaysSinceLaunch(): number {
-  const launch = new Date(`${siteConfig.launchDate}T00:00:00Z`);
-  const now = new Date();
-  const currentUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  const launchUtc = Date.UTC(launch.getUTCFullYear(), launch.getUTCMonth(), launch.getUTCDate());
-  const diffMs = currentUtc - launchUtc;
-  return Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
-}
-
-export function StatsDashboard() {
-  const metrics = getMetrics();
-
-  const stats = [
-    { label: "Total Ventures", value: ventures.length.toString() },
-    { label: "Pages Published", value: formatNumber(metrics.totals.pages) },
-    { label: "Total Lines of Code", value: formatNumber(metrics.totals.loc) },
-    { label: "Days Since Launch", value: calculateDaysSinceLaunch().toString() },
-  ];
-
-  return (
-    <section aria-label="Live stats dashboard" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      {stats.map((stat) => (
-        <article key={stat.label} className="stat-card">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">{stat.label}</p>
-          <p className="mt-2 font-mono text-3xl text-terminal animate-ticker">{stat.value}</p>
-        </article>
-      ))}
-    </section>
-  );
+import {ventures} from "@/lib/site";
+export function StatsDashboard(){
+ const stats=[{label:"Registered projects & systems",value:String(ventures.length)},{label:"Agent-led project mandates",value:String(ventures.filter(v=>v.mode==='agent-led').length)},{label:"New ventures per month",value:"1 · target"},{label:"Fleet runtime acceptance",value:"Not established"}];
+ return <section aria-label="Dated portfolio registry, not live financial metrics" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{stats.map(s=><article key={s.label} className="stat-card min-w-0"><p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">{s.label}</p><p className="mt-3 break-words font-mono text-2xl text-terminal">{s.value}</p></article>)}</section>;
 }
