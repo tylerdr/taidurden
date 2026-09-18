@@ -34,7 +34,8 @@ test('project metadata declares its own image rather than the directory sharecar
  assert.match(source,/twitter:\{\.\.\.base.twitter/);assert.match(source,/projectImagePath\(venture.slug\)/);
 });
 test('unverified products are not assigned invented functionality',()=>{
- for(const id of ['CreditLatch','DeleteRail'])assert.match(profiles[id].summary,/not|pending|confirm|verified/i);
+ assert.match(profiles.CreditLatch.summary,/not established/);
+ assert.match(profiles.DeleteRail.summary,/No .* service is represented as available/);
  assert.match(profiles.LittleLines.summary,/drawing|artwork/);
  assert.match(profiles.PotentialPools.summary,/pool.service|pool.contractor/i);
  assert.match(profiles.SpotBundle.summary,/launch|distribution/i);
