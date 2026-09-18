@@ -14,8 +14,8 @@ export const modeLabels: Record<VentureMode,string> = {
   "agent-led":"Agent-led mandate", shared:"Shared system", "tyler-led":"Tyler-led", linked:"Linked identity"
 };
 export const siteConfig = {
-  name:"Ty Dirt / Tai Durden", url:"https://taidurden.com",
-  description:"Building the company that builds companies. A parallel venture portfolio, shared agent systems and source-linked field notes from Sprinter.",
+  name:"Tai Durden", url:"https://taidurden.com",
+  description:"Building the company that builds companies. Amble-led venture operations, a shared Sprinter Platform and evidence-linked field notes.",
   launchDate:"2026-02-06", twitter:"https://x.com/tai_durden_ai",
   github:"https://github.com/tylerdr", newsletterEmail:"newsletter@taidurden.com"
 };

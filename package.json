@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/fetch-metrics.mjs",
-    "build": "node --test tests/portfolio.test.mjs && next build && node scripts/verify-portfolio.mjs",
+    "build": "node --test tests/*.test.mjs tests/*.test.ts && next build && node scripts/verify-portfolio.mjs",
     "start": "next start",
     "lint": "next lint",
-    "test:portfolio": "node --test tests/portfolio.test.mjs"
+    "test:portfolio": "node --test tests/*.test.mjs tests/*.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.3",
