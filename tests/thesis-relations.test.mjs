@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {matchesThesis,uniqueIdsForThesis} from '../lib/thesis-relations.ts';
+const read=p=>readFileSync(p,'utf8');
+const data=JSON.parse(read('data/thesis-memberships.json')),projects=JSON.parse(read('data/portfolio.json')).entries,theses=JSON.parse(read('data/theses.json'));
+test('GetFoundInChat belongs to all three owner-specified theses',()=>{const c=data.projects.GetFoundInChat;assert.deepEqual(c.relations.map(r=>r.thesisId),['agent-native-tools','smb-transformation','growth-commerce']);for(const id of c.relations.map(r=>r.thesisId))assert.equal(matchesThesis(c,id),true);assert.equal(matchesThesis(c,'health-optimization'),false);});
+test('each relation contributes at most one product to a thesis',()=>{for(const t of theses){const ids=projects.map(p=>p.id);const found=uniqueIdsForThesis([...ids,...ids],data.projects,t.slug);assert.equal(found.length,new Set(found).size);assert.deepEqual(found,ids.filter(id=>matchesThesis(data.projects[id],t.slug)));}});
+test('overlapping counts are not an additive company total',()=>{const ids=projects.map(p=>p.id),groups=theses.map(t=>uniqueIdsForThesis(ids,data.projects,t.slug));assert.equal(new Set(groups.flat()).size,32);assert.ok(groups.flat().length>32);assert.match(data.countingRule,/overlap/);});
+test('unknown thesis and product identities do not create a match',()=>{assert.deepEqual(uniqueIdsForThesis(['unknown'],data.projects,'agent-native-tools'),[]);assert.deepEqual(uniqueIdsForThesis(projects.map(p=>p.id),data.projects,'unknown'),[]);});
+test('builders includes products beyond engineering utilities',()=>{for(const id of ['GetFoundInChat','BrandKit','SpotBundle','BuildOwnSell','UIProof'])assert.equal(matchesThesis(data.projects[id],'agent-native-tools'),true);});
+test('portfolio thesis serves individual and institutional operators',()=>{const t=theses.find(t=>t.slug==='business-ownership');assert.match(t.description,/individuals/);assert.match(t.subtitle,/family offices.*private equity/);for(const id of ['CIMReader','PortcoAudit','BuildOwnSell','CreditLatch'])assert.equal(matchesThesis(data.projects[id],t.slug),true);});
+test('meaningful overlap does not indiscriminately attach every product',()=>{assert.equal(data.projects.GetFoundInChat.relations.length,3);assert.equal(data.projects.OhioPowerPicker.relations.length,1);assert.equal(data.projects.LittleLines.relations.length,1);});
+test('first-person story preserves aspiration versus results',()=>{const s=read('app/story/page.tsx');for(const p of [/I am Tai Durden/,/first use case, not a completed case study/,/one million entrepreneurs/,/family.*faith.*health/,/Fight Club/,/not destruction/,/authority/])assert.match(s,p);});
+test('distribution thesis does not erase other sources of advantage',()=>assert.match(theses.find(t=>t.slug==='growth-commerce').boundary,/not literally the only moat/));
+test('health and human purpose are not conditioned on wealth',()=>{assert.match(read('app/theses/page.tsx'),/do not have to wait/);assert.match(read('app/story/page.tsx'),/not things to postpone/);});
+test('related-project logic uses overlap without duplicated records',()=>{const s=read('app/ventures/[slug]/page.tsx');assert.match(s,/new Set\(c.relations/);assert.match(s,/overlap/);assert.doesNotMatch(s,/primaryThesis/);});
+test('home and thesis index share the human-first narrative',()=>{assert.match(read('app/page.tsx'),/So humans can build a life/);assert.match(read('app/theses/page.tsx'),/Build more/);assert.match(read('app/theses/page.tsx'),/One product, three theses/);});
