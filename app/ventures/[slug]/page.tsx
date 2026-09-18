@@ -1,8 +1,42 @@
+import Image from "next/image";
 import Link from "next/link";
-import {notFound} from "next/navigation";
-import {createPageMetadata} from "@/lib/seo";
-import {ventures,modeLabels,portfolioAsOf} from "@/lib/site";
-type Props={params:Promise<{slug:string}>};
-export function generateStaticParams(){return ventures.map(v=>({slug:v.slug}));}
-export async function generateMetadata({params}:Props){const {slug}=await params;const v=ventures.find(v=>v.slug===slug);return createPageMetadata({title:v?`${v.name} — Tai Durden`:'Project not found',description:v?.valueEvent??'Registered project directory',path:v?`/ventures/${v.slug}`:'/ventures'});}
-export default async function VentureDetail({params}:Props){const {slug}=await params;const v=ventures.find(v=>v.slug===slug);if(!v)notFound();return <div className="space-y-8 pb-8"><section className="space-y-4"><p className="font-mono text-xs uppercase tracking-wide text-terminal">{v.family} · {modeLabels[v.mode]}</p><h1 className="text-4xl font-semibold text-white md:text-5xl">{v.name}</h1><p className="text-sm text-muted-foreground">Registered {portfolioAsOf}. Operating responsibility is not a claim of legal ownership or autonomous execution.</p>{v.publicUrl&&<a href={v.publicUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-terminal">Visit registered product address ↗</a>}</section><section className="panel space-y-4 p-6"><h2 className="text-2xl font-semibold text-white">{v.definitionStatus==='needs-source-reconciliation'?'First task: reconcile the actual offer':'Proposed minimum viable value'}</h2><p className="text-lg leading-relaxed text-muted-foreground">{v.valueEvent}</p><p className="text-sm text-muted-foreground">This is the intended acceptance target, not a representation that this workflow is already delivered or validated with paying customers.</p></section><section className="grid gap-4 md:grid-cols-3">{['Product capability','Agent execution','Customer economics'].map(label=><article key={label} className="panel p-5"><h2 className="font-semibold text-white">{label}</h2><p className="mt-3 text-sm text-muted-foreground">Requires current source-linked acceptance evidence. Not established by this registry entry.</p></article>)}</section><section className="panel space-y-3 p-6"><h2 className="text-xl font-semibold text-white">Operating loop</h2><p className="leading-relaxed text-muted-foreground">{v.mode==='tyler-led'?'Tyler leads this business. Fleet work must support existing commitments without taking over its customer or production decisions.':v.mode==='linked'?'Reconcile the canonical relationship and share the existing capability owner. Do not create duplicate agent teams, customer entitlements or revenue.':'Health and obligations → value delivery → product decision → distribution experiment → learning → evidence. A dedicated logical team uses shared workers and versioned modules; runtime binding and successful receipts must be verified.'}</p></section><Link href="/ventures" className="inline-flex min-h-11 items-center text-terminal">← All registered projects</Link></div>;}
+import { notFound } from "next/navigation";
+import { createPageMetadata } from "@/lib/seo";
+import { ventures, modeLabels, portfolioAsOf, siteConfig } from "@/lib/site";
+import { legacyArt } from "@/lib/legacy-art";
+import { projectProfile, projectImagePath } from "@/lib/project-profile";
+
+type Props = {params: Promise<{slug: string}>};
+export function generateStaticParams() { return ventures.map(v => ({slug:v.slug})); }
+export async function generateMetadata({params}: Props) {
+  const {slug} = await params;
+  const venture = ventures.find(v => v.slug === slug);
+  if (!venture) return createPageMetadata({title:"Project not found",description:"Tai Durden project directory",path:"/ventures"});
+  const profile = projectProfile(venture.id);
+  const base = createPageMetadata({title:`${venture.name} — Tai Durden`,description:profile.summary,path:`/ventures/${venture.slug}`});
+  const image = {url:`${siteConfig.url}${projectImagePath(venture.slug)}`,width:1200,height:630,alt:`${venture.name} — ${profile.tagline}`};
+  return {...base,openGraph:{...base.openGraph,images:[image]},twitter:{...base.twitter,card:"summary_large_image" as const,images:[image]}};
+}
+
+export default async function VentureDetail({params}: Props) {
+  const {slug} = await params;
+  const v = ventures.find(entry => entry.slug === slug);
+  if (!v) notFound();
+  const profile = projectProfile(v.id);
+  const existingArt = legacyArt(v.slug);
+  const image = existingArt ?? projectImagePath(v.slug);
+  const related = ventures.filter(entry => entry.id !== v.id && entry.family === v.family).slice(0,3);
+  const url = v.id === "Amble" ? "https://app.sprinter.ai" : v.id === "SpotBundle" ? "https://spotbundle.com" : v.id === "PotentialPools" ? "https://potentialpools.com" : v.publicUrl;
+  const targets: Record<string,string> = {SpotBundle:"A documented launch-distribution program with a channel-fit map, adapted assets and a clear record of submissions and results",PotentialPools:"An actionable, permission-aware prospecting opportunity for a pool-service business",LittleLines:"A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"};
+  return <div className="space-y-8 pb-8" data-site-revision={process.env.VERCEL_GIT_COMMIT_SHA ?? "local"}>
+    <Link href="/ventures" className="inline-flex min-h-11 items-center text-sm text-terminal">← All projects</Link>
+    <section className="grid items-center gap-7 lg:grid-cols-2">
+      <div className="space-y-4"><p className="font-mono text-xs uppercase tracking-wide text-terminal">{v.family} · {modeLabels[v.mode]}</p><h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">{v.name}</h1><p className="text-xl leading-relaxed text-white/90">{profile.tagline}</p><p className="leading-relaxed text-muted-foreground">{profile.summary}</p>{url&&<a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-lg bg-terminal px-5 font-semibold text-black">Visit project website ↗</a>}</div>
+      <figure className="panel overflow-hidden"><Image src={image} alt={`${v.name} — ${profile.tagline}`} width={1200} height={630} unoptimized={!existingArt} priority sizes="(max-width: 1023px) 100vw, 50vw" className="h-auto w-full" data-project-image={v.slug}/><figcaption className="px-4 py-3 text-xs text-muted-foreground">{existingArt?"Existing project brand artwork":"Rendered project share image"} · not a product screenshot</figcaption></figure>
+    </section>
+    <section className="panel grid gap-6 p-6 md:grid-cols-[1fr_1.5fr]"><div><h2 className="text-xl font-semibold text-white">Who it is for</h2><p className="mt-3 leading-relaxed text-muted-foreground">{profile.audience}</p></div><div><h2 className="text-xl font-semibold text-white">Product focus</h2><ul className="mt-4 grid gap-3 sm:grid-cols-3">{profile.focus.map(item=><li key={item} className="rounded-lg border border-terminal/20 p-4 text-sm text-white/90">{item}</li>)}</ul></div></section>
+    <section className="panel space-y-3 p-6"><h2 className="text-xl font-semibold text-white">The value we are working toward</h2><p className="leading-relaxed text-muted-foreground">{targets[v.id] ?? v.valueEvent}.</p><p className="text-sm text-muted-foreground">This is a proposed acceptance target. Product focus, production availability and customer results are separate facts; this directory is not a claim of paid or autonomous operation.</p></section>
+    {related.length>0&&<section className="space-y-4"><h2 className="text-xl font-semibold text-white">Explore related projects</h2><div className="grid gap-3 md:grid-cols-3">{related.map(entry=><Link key={entry.id} href={`/ventures/${entry.slug}`} className="panel block p-5 hover:border-terminal/50"><h3 className="font-semibold text-white">{entry.name} →</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{projectProfile(entry.id).tagline}</p></Link>)}</div></section>}
+    <section className="border-t border-white/10 pt-5 text-sm leading-relaxed text-muted-foreground"><p>Public profile reviewed {portfolioAsOf}. Amble is the venture system of record; this website is a dated public view, not a live synchronization or financial dashboard. {v.mode==="tyler-led"?"Tyler leads this business and its existing commitments.":v.mode==="linked"?"This entry describes a linked identity or capability, not an additional independent business.":"Operating responsibility is not a claim of legal ownership."}</p><a href={projectImagePath(v.slug)} className="mt-3 inline-flex min-h-11 items-center text-terminal">Open this project’s share image ↗</a></section>
+  </div>;
+}
