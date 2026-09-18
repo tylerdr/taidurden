@@ -4,7 +4,9 @@ import {readFileSync,readdirSync} from 'node:fs';
 import {join} from 'node:path';
 const read=(path:string)=>readFileSync(path,'utf8');
 const manifest=JSON.parse(read('data/portfolio.json')) as {entries:{id:string;slug:string}[]};
-const profiles=JSON.parse(read('data/project-profiles.json')) as Record<string,{tagline:string;audience:string;summary:string;focus:string[];visual:string}>;
+const seeds=JSON.parse(read('data/project-profiles.json'));
+const evidence=JSON.parse(read('data/project-profile-evidence.json'));
+const profiles=Object.fromEntries(Object.entries(seeds).map(([id,p])=>[id,{...(p as object),...evidence[id]}])) as Record<string,{tagline:string;audience:string;summary:string;focus:string[];visual:string}>;
 const retired=new RegExp(['ty','dirt'].join('[\\s_-]*'),'i');
 const kinds=new Set(['roof','film','garden','family','pencil','health','fitness','wine','pool','energy','cube','cabinet','brand','media','search','document','blueprint','network']);
 test('every registered project has exactly one complete public profile',()=>{
@@ -33,9 +35,10 @@ test('project metadata declares its own image rather than the directory sharecar
  assert.match(source,/openGraph:\{\.\.\.base.openGraph,images:\[image\]\}/);
  assert.match(source,/twitter:\{\.\.\.base.twitter/);assert.match(source,/projectImagePath\(venture.slug\)/);
 });
-test('unverified products are not assigned invented functionality',()=>{
- assert.match(profiles.CreditLatch.summary,/not established/);
- assert.match(profiles.DeleteRail.summary,/No .* service is represented as available/);
+test('reconciled product profiles preserve source and claim boundaries',()=>{
+ assert.match(profiles.CreditLatch.summary,/flagged amounts are not proof/);
+ assert.match(profiles.DeleteRail.summary,/reviewers retain legal and production decisions/);
+ for(const id of ['CreditLatch','DeleteRail']){assert.match(evidence[id].sourceUrl,/^https:\/\//);assert.equal(evidence[id].asOf,'2026-09-17');}
  assert.match(profiles.LittleLines.summary,/drawing|artwork/);
  assert.match(profiles.PotentialPools.summary,/pool.service|pool.contractor/i);
  assert.match(profiles.SpotBundle.summary,/launch|distribution/i);

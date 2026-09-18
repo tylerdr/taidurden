@@ -13,14 +13,13 @@ const sleep=(ms:number)=>new Promise(r=>setTimeout(r,ms));
 const retired=new RegExp(['ty','dirt'].join('[\\s_-]*'),'i');
 let browser:any;let checks=0;const errors:string[]=[];
 try {
- for(const url of ['https://creditlatch.vercel.app','https://deleterail.vercel.app']){try{const r=await fetch(url,{signal:AbortSignal.timeout(12000)});const html=await r.text();const title=html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];const cleaned=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').slice(0,4200);console.log('PUBLIC_PROFILE_SOURCE '+JSON.stringify({url,status:r.status,title,text:cleaned,at:new Date().toISOString()}));}catch(e){console.log('PUBLIC_PROFILE_SOURCE '+JSON.stringify({url,error:String(e)}));}}
  let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base,{signal:AbortSignal.timeout(1500)})).ok){ready=true;break;}}catch{}await sleep(500);}assert.ok(ready,'QA server ready');
- const args=chromium.args.filter((arg:string)=>!['--disable-web-security','--disable-site-isolation-trials','--allow-running-insecure-content'].includes(arg));
- browser=await playwright.chromium.launch({headless:true,args,executablePath:await chromium.executablePath()});
+ const args=chromium.args.filter((arg:string)=>!['--disable-web-security','--disable-site-isolation-trials','--allow-running-insecure-content','--single-process'].includes(arg)&&!arg.startsWith('--disable-features='));
  for(const width of [1440,390]){
+  browser=await playwright.chromium.launch({headless:true,args,executablePath:await chromium.executablePath()});
   const context=await browser.newContext({viewport:{width,height:960},deviceScaleFactor:1,reducedMotion:'reduce'});
   const page=await context.newPage();page.on('pageerror',(e:Error)=>errors.push(e.message));
-  for(const route of ['/','/ventures/','/ventures/roofingreels/','/ventures/amble/','/ventures/little-acre-lab/','/ventures/little-lines/']){
+  for(const route of ['/','/ventures/','/ventures/roofingreels/','/ventures/amble/','/ventures/little-acre-lab/','/ventures/little-lines/','/ventures/creditlatch/','/ventures/deleterail/']){
    const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});assert.equal(response.status(),200);
    await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);
    assert.equal(await page.locator('h1').count(),1);assert.ok(!retired.test(await page.locator('body').innerText()));
@@ -38,10 +37,10 @@ try {
    if(route.startsWith('/ventures/')&&route!='/ventures/'&&process.env.EXPECTED_SITE_SHA)assert.equal(await page.locator('[data-site-revision]').getAttribute('data-site-revision'),process.env.EXPECTED_SITE_SHA);
    checks++;
   }
-  await context.close();
+  await context.close();await browser.close();browser=null;
  }
  assert.deepEqual(errors,[],'No uncaught browser errors');
  const version=(name:string)=>JSON.parse(readFileSync(`/tmp/taidurden-browser-qa/node_modules/${name}/package.json`,'utf8')).version;
- const receipt={passed:true,base,routeViewportCases:checks,widths:[1440,390],galleryImagesEach:44,filters:true,navigation:true,noHorizontalOverflow:true,uncaughtPageErrors:errors.length,applicationSource:'3b01678ef077efa95b50b82b36dc28d9c084f075',verificationSha:process.env.VERCEL_GIT_COMMIT_SHA??null,expectedProductionSha:process.env.EXPECTED_SITE_SHA??null,at:new Date().toISOString(),playwright:version('playwright-core'),chromium:version('@sparticuz/chromium')};
+ const receipt={passed:true,base,routeViewportCases:checks,widths:[1440,390],galleryImagesEach:44,filters:true,navigation:true,noHorizontalOverflow:true,uncaughtPageErrors:errors.length,applicationSource:'f6b009acb05f6de594b3644e44af72e6297b60e5',verificationSha:process.env.VERCEL_GIT_COMMIT_SHA??null,expectedProductionSha:process.env.EXPECTED_SITE_SHA??null,at:new Date().toISOString(),playwright:version('playwright-core'),chromium:version('@sparticuz/chromium')};
  mkdirSync('public/qa',{recursive:true});writeFileSync('public/qa/receipt.json',JSON.stringify(receipt));console.log('PORTFOLIO_BROWSER_ACCEPTANCE '+JSON.stringify(receipt));
 } finally {if(browser)await browser.close();if(server){server.kill('SIGTERM');await sleep(250);if(server.exitCode===null)server.kill('SIGKILL');}}
