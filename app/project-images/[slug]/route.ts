@@ -10,5 +10,6 @@ export async function GET(_request: Request, {params}: {params: Promise<{slug: s
   const {slug} = await params;
   const project = ventures.find(entry => entry.slug === slug);
   if (!project) return new Response("Project not found", {status:404});
-  return renderProjectImage(project, projectProfile(project.id));
+  const profile=projectProfile(project.id);
+  return renderProjectImage({...project,family:profile.category??project.family}, profile);
 }

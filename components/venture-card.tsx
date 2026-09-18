@@ -14,7 +14,7 @@ export function VentureCard({venture}: {venture: Venture}) {
     </Link>
     <p className="px-5 pt-2 text-[10px] text-muted-foreground">{existingArt?"Brand artwork":"Rendered share image"} · not a current product screenshot</p>
     <div className="flex flex-1 flex-col gap-4 p-5">
-      <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted-foreground"><span>{venture.family}</span><span className="rounded-full border border-terminal/20 px-2 py-1">{modeLabels[venture.mode]}</span></div>
+      <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted-foreground"><span>{profile.category ?? venture.family}</span><span className="rounded-full border border-terminal/20 px-2 py-1">{modeLabels[venture.mode]}</span></div>
       <h3 className="text-xl font-semibold text-white"><Link className="hover:text-terminal" href={`/ventures/${venture.slug}`}>{venture.name}</Link></h3>
       <p className="text-base leading-relaxed text-white/90">{profile.tagline}</p>
       <p className="text-sm leading-relaxed text-muted-foreground">{profile.summary}</p>

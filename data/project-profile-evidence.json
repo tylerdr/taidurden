@@ -1,0 +1,46 @@
+{
+  "CreditLatch": {
+    "asOf": "2026-09-17",
+    "sourceUrl": "https://creditlatch.vercel.app",
+    "publicUrl": "https://creditlatch.vercel.app",
+    "category": "Business operators",
+    "tagline": "Find payment exceptions worth investigating.",
+    "audience": "Bookkeeping and controller firms reviewing wholesale-client exports.",
+    "summary": "CreditLatch checks payment and supplier-credit CSV exports for potential overpayments and unmatched credits, with source rows and review packets. The scanner runs in the browser; flagged amounts are not proof of money owed or recovered cash.",
+    "focus": ["Payment exceptions", "Supplier-credit checks", "Source-linked review"],
+    "visual": "document",
+    "valueEvent": "A source-linked exception review packet that a bookkeeper can verify with a client"
+  },
+  "DeleteRail": {
+    "asOf": "2026-09-17",
+    "sourceUrl": "https://deleterail.vercel.app",
+    "publicUrl": "https://deleterail.vercel.app",
+    "category": "Vertical operations",
+    "tagline": "Own the code behind privacy-request processing.",
+    "audience": "Privacy and engineering teams at data brokers.",
+    "summary": "DeleteRail focuses on customer-owned privacy-request processing: retrieve request lists, match records, route review-gated actions and retain status evidence. The implementation is designed for the customer's cloud; designated reviewers retain legal and production decisions.",
+    "focus": ["Request processing", "Review-gated actions", "Customer-owned code"],
+    "visual": "network",
+    "valueEvent": "A tested, customer-owned request-processing workflow with review controls and traceable results"
+  },
+  "SpotBundle": {
+    "asOf": "2026-09-17",
+    "sourceUrl": "https://spotbundle.com",
+    "publicUrl": "https://spotbundle.com",
+    "category": "Business operators",
+    "valueEvent": "A documented launch-distribution program with a channel-fit map, adapted assets and a clear record of submissions and results"
+  },
+  "PotentialPools": {
+    "asOf": "2026-09-17",
+    "sourceUrl": "https://potentialpools.com",
+    "publicUrl": "https://potentialpools.com",
+    "category": "Vertical operations",
+    "valueEvent": "An actionable, permission-aware prospecting opportunity for a pool-service business"
+  },
+  "LittleLines": {
+    "asOf": "2026-09-17",
+    "sourceKind": "current repository product README",
+    "category": "Families",
+    "valueEvent": "A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"
+  }
+}
