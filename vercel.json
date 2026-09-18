@@ -1,0 +1,1 @@
+{"buildCommand":"npm run build && npm install --prefix /tmp/taidurden-browser-qa --no-package-lock --no-audit --no-fund playwright-core @sparticuz/chromium && node scripts/verify-gallery-browser.ts"}
