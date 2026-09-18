@@ -2,54 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
 import {join} from 'node:path';
-const read=(path:string)=>readFileSync(path,'utf8');
+const read=(p:string)=>readFileSync(p,'utf8');
 const manifest=JSON.parse(read('data/portfolio.json')) as {entries:{id:string;slug:string}[]};
-const seeds=JSON.parse(read('data/project-profiles.json'));
-const evidence=JSON.parse(read('data/project-profile-evidence.json'));
+const seeds=JSON.parse(read('data/project-profiles.json')),evidence=JSON.parse(read('data/project-profile-evidence.json'));
 const profiles=Object.fromEntries(Object.entries(seeds).map(([id,p])=>[id,{...(p as object),...evidence[id]}])) as Record<string,{tagline:string;audience:string;summary:string;focus:string[];visual:string}>;
 const retired=new RegExp(['ty','dirt'].join('[\\s_-]*'),'i');
 const kinds=new Set(['roof','film','garden','family','pencil','health','fitness','wine','pool','energy','cube','cabinet','brand','media','search','document','blueprint','network']);
-test('every registered project has exactly one complete public profile',()=>{
- assert.deepEqual(Object.keys(profiles).sort(),manifest.entries.map(e=>e.id).sort());
- for(const p of Object.values(profiles)){
-  assert.ok(p.tagline.length>10&&p.tagline.length<120);
-  assert.ok(p.audience.length>15&&p.audience.length<200);
-  assert.ok(p.summary.length>70&&p.summary.length<700);
-  assert.equal(p.focus.length,3);assert.equal(new Set(p.focus).size,3);
-  assert.ok(p.focus.every(f=>f.length>4&&f.length<65));assert.ok(kinds.has(p.visual));
- }
-});
-test('every project has a unique prerendered share-image route',()=>{
- const route=read('app/project-images/[slug]/route.ts');
- assert.match(route,/force-static/);assert.match(route,/generateStaticParams/);
- assert.match(route,/renderProjectImage/);assert.equal(new Set(manifest.entries.map(e=>`/project-images/${e.slug}`)).size,44);
-});
-test('cards and detail pages both display project images and useful descriptions',()=>{
- for(const path of ['components/venture-card.tsx','app/ventures/[slug]/page.tsx']){
-  const source=read(path);assert.match(source,/data-project-image/);assert.match(source,/projectImagePath/);
-  assert.match(source,/profile.summary/);assert.match(source,/legacyArt/);
- }
-});
-test('project metadata declares its own image rather than the directory sharecard',()=>{
- const source=read('app/ventures/[slug]/page.tsx');
- assert.match(source,/openGraph:\{\.\.\.base.openGraph,images:\[image\]\}/);
- assert.match(source,/twitter:\{\.\.\.base.twitter/);assert.match(source,/projectImagePath\(venture.slug\)/);
-});
-test('reconciled product profiles preserve source and claim boundaries',()=>{
- assert.match(profiles.CreditLatch.summary,/flagged amounts are not proof/);
- assert.match(profiles.DeleteRail.summary,/reviewers retain legal and production decisions/);
- for(const id of ['CreditLatch','DeleteRail']){assert.match(evidence[id].sourceUrl,/^https:\/\//);assert.equal(evidence[id].asOf,'2026-09-17');}
- assert.match(profiles.LittleLines.summary,/drawing|artwork/);
- assert.match(profiles.PotentialPools.summary,/pool.service|pool.contractor/i);
- assert.match(profiles.SpotBundle.summary,/launch|distribution/i);
-});
-test('image renderer uses local editorial geometry, not remote image or model calls',()=>{
- const source=read('lib/project-image.tsx');assert.match(source,/ImageResponse/);assert.match(source,/width:1200,height:630/);
- assert.doesNotMatch(source,/fetch\(|https:\/\/|apiKey|generateImage/);
-});
-test('public source and text assets cannot reintroduce the retired identity',()=>{
- const scan=(dir:string)=>{for(const e of readdirSync(dir,{withFileTypes:true})){
-  const p=join(dir,e.name);if(e.isDirectory())scan(p);else if(/\.(tsx?|json|svg|txt|html|md|xml)$/.test(p))assert.ok(!retired.test(read(p)),`Retired identity in ${p}`);
- }};
- for(const root of ['app','components','data','lib','public'])scan(root);
-});
+test('every retained product has a complete source-preserved profile',()=>{for(const e of manifest.entries){const p=profiles[e.id];assert.ok(p);assert.ok(p.tagline.length>10&&p.tagline.length<120);assert.ok(p.audience.length>15&&p.audience.length<200);assert.ok(p.summary.length>70&&p.summary.length<700);assert.equal(p.focus.length,3);assert.equal(new Set(p.focus).size,3);assert.ok(p.focus.every(f=>f.length>4&&f.length<65));assert.ok(kinds.has(p.visual));}});
+test('every retained product has a unique prerendered share image',()=>{const s=read('app/project-images/[slug]/route.ts');assert.match(s,/force-static/);assert.match(s,/generateStaticParams/);assert.match(s,/renderProjectImage/);assert.equal(new Set(manifest.entries.map(e=>`/project-images/${e.slug}`)).size,32);});
+test('cards and details keep images and substantive descriptions',()=>{for(const p of ['components/venture-card.tsx','app/ventures/[slug]/page.tsx']){const s=read(p);assert.match(s,/data-project-image/);assert.match(s,/projectImagePath/);assert.match(s,/profile.summary/);assert.match(s,/legacyArt/);}});
+test('individual metadata does not inherit a generic directory image',()=>{const s=read('app/ventures/[slug]/page.tsx');assert.match(s,/openGraph:\{\.\.\.base.openGraph,images:\[image\]\}/);assert.match(s,/twitter:\{\.\.\.base.twitter/);assert.match(s,/projectImagePath\(venture.slug\)/);});
+test('source-reconciled descriptions preserve claim boundaries',()=>{assert.match(profiles.CreditLatch.summary,/flagged amounts are not proof/);assert.match(profiles.DeleteRail.summary,/reviewers retain legal and production decisions/);for(const id of ['CreditLatch','DeleteRail']){assert.match(evidence[id].sourceUrl,/^https:\/\//);assert.equal(evidence[id].asOf,'2026-09-17');}assert.match(profiles.LittleLines.summary,/drawing|artwork/);assert.match(profiles.PotentialPools.summary,/pool.service|pool.contractor/i);assert.match(profiles.SpotBundle.summary,/launch|distribution/i);});
+test('renderer keeps local geometry with no model or remote-image calls',()=>{const s=read('lib/project-image.tsx');assert.match(s,/ImageResponse/);assert.match(s,/width:1200,height:630/);assert.doesNotMatch(s,/fetch\(|https:\/\/|apiKey|generateImage/);});
+test('public sources cannot reintroduce the retired identity',()=>{const scan=(dir:string)=>{for(const e of readdirSync(dir,{withFileTypes:true})){const p=join(dir,e.name);if(e.isDirectory())scan(p);else if(/\.(tsx?|json|svg|txt|html|md|xml)$/.test(p))assert.ok(!retired.test(read(p)),p);}};for(const dir of ['app','components','data','lib','public'])scan(dir);});

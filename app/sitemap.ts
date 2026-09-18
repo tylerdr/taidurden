@@ -1,6 +1,4 @@
 import type {MetadataRoute} from "next";
-import {ventures,siteConfig} from "@/lib/site";
-export default function sitemap():MetadataRoute.Sitemap {
- const paths=["","/ventures","/process","/story","/journal","/newsletter","/services",...ventures.map(v=>`/ventures/${v.slug}`)];
- return paths.map(path=>({url:`${siteConfig.url}${path}/`}));
-}
+import {siteConfig,ventures} from "@/lib/site";
+import {theses} from "@/lib/taxonomy";
+export default function sitemap():MetadataRoute.Sitemap{return ['','/ventures','/theses','/story','/process','/journal','/services','/newsletter',...ventures.map(v=>`/ventures/${v.slug}`),...theses.map(t=>`/theses/${t.slug}`)].map(path=>({url:`${siteConfig.url}${path}`,changeFrequency:'weekly',priority:path===''?1:0.7}));}
