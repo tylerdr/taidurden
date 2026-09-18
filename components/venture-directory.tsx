@@ -1,14 +1,25 @@
 "use client";
 import {useState} from "react";
 import {Button} from "@/components/ui/button";
-import {ventures,modeLabels,type VentureMode} from "@/lib/site";
+import {Input} from "@/components/ui/input";
+import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from "@/components/ui/select";
+import {ventures} from "@/lib/site";
 import {VentureCard} from "@/components/venture-card";
-const filters:Array<"all"|VentureMode>=["all","agent-led","shared","tyler-led","linked"];
-export function VentureDirectory(){
- const [filter,setFilter]=useState<(typeof filters)[number]>("all");
- const selected=ventures.filter(v=>filter==='all'||v.mode===filter);
- return <section aria-label="Project directory"><div className="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filter by operating responsibility">
- {filters.map(f=><Button key={f} variant="outline" aria-pressed={filter===f} onClick={()=>setFilter(f)} className={filter===f?'border-terminal text-terminal':''}>{f==='all'?'All projects':modeLabels[f]}</Button>)}</div>
- <p className="mb-5 text-sm text-muted-foreground" role="status">{selected.length} registered entries. Operating responsibility is not a runtime-status claim.</p>
- <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{selected.map(v=><VentureCard key={v.id} venture={v}/>)}</div></section>;
+import {theses,classificationFor,audienceLabels,companyTypeLabels,industryLabels,businessModelLabels} from "@/lib/taxonomy";
+import {projectProfile} from "@/lib/project-profile";
+function Facet({label,value,onChange,options}:{label:string;value:string;onChange:(v:string)=>void;options:Record<string,string>}) {
+ return <div className="min-w-0 space-y-2"><p className="text-xs font-medium text-muted-foreground">{label}</p><Select value={value} onValueChange={onChange}><SelectTrigger aria-label={label} className="min-h-11 w-full"><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All</SelectItem>{Object.entries(options).map(([key,text])=><SelectItem key={key} value={key}>{text}</SelectItem>)}</SelectContent></Select></div>;
+}
+export function VentureDirectory({thesisSlug}:{thesisSlug?:string}) {
+ const [thesis,setThesis]=useState(thesisSlug??"all"),[audience,setAudience]=useState("all"),[kind,setKind]=useState("all"),[industry,setIndustry]=useState("all"),[model,setModel]=useState("all"),[query,setQuery]=useState("");
+ const selected=ventures.filter(v=>{const c=classificationFor(v.id);return (thesis==="all"||c.primaryThesis===thesis)&&(audience==="all"||c.audience===audience)&&(kind==="all"||c.companyType===kind)&&(industry==="all"||c.industry===industry)&&(model==="all"||c.businessModelHypothesis===model)&&`${v.name} ${projectProfile(v.id).summary}`.toLowerCase().includes(query.trim().toLowerCase());});
+ const reset=()=>{setThesis(thesisSlug??"all");setAudience("all");setKind("all");setIndustry("all");setModel("all");setQuery("");};
+ return <section aria-label="Project directory" className="space-y-5">
+  {!thesisSlug&&<div className="flex flex-wrap gap-2" role="group" aria-label="Filter by thesis"><Button variant="outline" aria-pressed={thesis==="all"} onClick={()=>setThesis("all")} className="min-h-11">All theses</Button>{theses.map(t=><Button key={t.slug} variant="outline" aria-pressed={thesis===t.slug} onClick={()=>setThesis(t.slug)} className={`min-h-11 whitespace-normal text-left ${thesis===t.slug?"border-terminal text-terminal":""}`}>{t.title}</Button>)}</div>}
+  <div className="panel space-y-4 p-4"><div className="grid items-end gap-4 sm:grid-cols-2"><div className="space-y-2"><label htmlFor="venture-search" className="text-xs font-medium text-muted-foreground">Find a project</label><Input id="venture-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search names or problems…" className="min-h-11"/></div><Facet label="Customer" value={audience} onChange={setAudience} options={audienceLabels}/></div>
+   <details><summary className="min-h-11 cursor-pointer py-3 text-sm text-terminal">Refine by product format, industry or business model</summary><div className="grid gap-4 pt-2 sm:grid-cols-3"><Facet label="Product format" value={kind} onChange={setKind} options={companyTypeLabels}/><Facet label="Industry" value={industry} onChange={setIndustry} options={industryLabels}/><Facet label="Business model hypothesis" value={model} onChange={setModel} options={businessModelLabels}/></div><p className="mt-3 text-xs text-muted-foreground">Business-model labels describe hypotheses to test, not activated billing or verified revenue.</p></details>
+  </div>
+  <div className="flex items-center justify-between gap-4"><p className="text-sm text-muted-foreground" role="status" aria-live="polite">{selected.length} Tai-operated {selected.length===1?"product":"products"}</p><Button variant="ghost" onClick={reset} className="min-h-11">Reset filters</Button></div>
+  {selected.length?<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{selected.map(v=><VentureCard key={v.id} venture={v}/>)}</div>:<div className="panel p-8 text-center"><p className="text-lg text-white">No projects match these filters.</p><p className="mt-2 text-sm text-muted-foreground">Try a broader combination or reset the filters.</p></div>}
+ </section>;
 }
