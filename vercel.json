@@ -1,1 +1,1 @@
-{"buildCommand":"node scripts/qa-abundance-build.mjs"}
+{"buildCommand":"node scripts/qa-abundance-production.mjs"}
