@@ -26,3 +26,7 @@ These checks prove the local source repair against the actual storage contract. 
 ## Release
 
 Review and merge this isolated fix; let the connected Vercel project deploy the reviewed SHA. Then repeat one labeled signup at taidurden.com and read back its scoped subscriber row. Confirm the authorized delivery inbox and newsletter dispatch owner separately before claiming end-to-end email delivery. Preserve the 32-product catalog and unrelated PR #7.
+
+## Service inquiry destination
+
+The live service-order and footer links use `tai@taidurden.com`. Authoritative DNS (`ns1.vercel-dns.com`) publishes no MX record for `taidurden.com`; its apex A records point to web hosting. Inbox delivery is unverified. The workspace USER.md identifies `tai@sprinterconsulting.com` as Tai's Google Workspace account, and that domain publishes Google MX records. Service inquiry links, footer contact, and newsletter-management guidance now consistently use that established mailbox. This is a source correction; no message was sent and actual inbox receipt remains unverified.

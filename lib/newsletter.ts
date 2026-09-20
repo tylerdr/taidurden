@@ -36,7 +36,7 @@ export async function handleSubscription(request: Request, createClient: () => S
     });
     if (error?.code === "23505") {
       return Response.json(
-        { success: false, error: "This email already has a subscription. Contact tai@taidurden.com to manage it." },
+        { success: false, error: "This email already has a subscription. Contact tai@sprinterconsulting.com to manage it." },
         { status: 409 }
       );
     }

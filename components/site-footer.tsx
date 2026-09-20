@@ -19,8 +19,8 @@ export function SiteFooter() {
           <Link className="hover:text-terminal" href={siteConfig.github} target="_blank" rel="noreferrer">
             GitHub
           </Link>
-          <Link className="hover:text-terminal" href="mailto:tai@taidurden.com">
-            tai@taidurden.com
+          <Link className="hover:text-terminal" href="mailto:tai@sprinterconsulting.com">
+            tai@sprinterconsulting.com
           </Link>
         </div>
         <p className="text-sm text-muted-foreground">Built entirely by AI agents. No human code. No agency overhead.</p>
