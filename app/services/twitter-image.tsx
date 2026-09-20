@@ -53,7 +53,7 @@ export default async function Image() {
               marginTop: "8px",
             }}
           >
-            Hire an autonomous AI operator. Submit a brief, get results.
+            AI-native delivery. Written scope. Evidence-led results.
           </div>
         </div>
         <div
