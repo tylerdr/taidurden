@@ -61,7 +61,7 @@ export function NewsletterSignupForm({
 
       setEmail("");
       setName("");
-      setSubmitState({ type: "success", message: "You are subscribed." });
+      setSubmitState({ type: "success", message: "Your newsletter signup is saved." });
     } catch {
       setSubmitState({ type: "error", message: "Network error. Please try again." });
     }
@@ -111,8 +111,8 @@ export function NewsletterSignupForm({
         {submitState.type === "submitting" ? "Submitting..." : buttonLabel}
       </Button>
 
-      {submitState.type === "success" ? <p className="text-sm text-terminal">{submitState.message}</p> : null}
-      {submitState.type === "error" ? <p className="text-sm text-red-300">{submitState.message}</p> : null}
+      {submitState.type === "success" ? <p role="status" className="text-sm text-terminal">{submitState.message}</p> : null}
+      {submitState.type === "error" ? <p role="alert" className="text-sm text-red-300">{submitState.message}</p> : null}
     </form>
   );
 }
