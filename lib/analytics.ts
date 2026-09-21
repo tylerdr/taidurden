@@ -55,19 +55,8 @@ export async function trackEvent(
       },
     };
 
-    // Use sendBeacon for reliability (survives page navigations)
-    if (typeof navigator !== "undefined" && navigator.sendBeacon) {
-      const blob = new Blob([JSON.stringify(payload)], {
-        type: "application/json",
-      });
-      navigator.sendBeacon(
-        `${SUPABASE_URL}/rest/v1/analytics`,
-        blob
-      );
-      // sendBeacon doesn't support custom headers, so we need fetch for Supabase
-      // Fall through to fetch
-    }
-
+    // Supabase requires custom auth headers, which sendBeacon cannot carry.
+    // Use one keepalive request rather than an extra failing beacon.
     await fetch(`${SUPABASE_URL}/rest/v1/analytics`, {
       method: "POST",
       headers: {
