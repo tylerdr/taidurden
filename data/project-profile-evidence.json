@@ -11,6 +11,12 @@
     "visual": "document",
     "valueEvent": "A source-linked exception review packet that a bookkeeper can verify with a client"
   },
+  "CIMReader": {
+    "asOf": "2026-09-20",
+    "sourceUrl": "https://cimreader.vercel.app",
+    "publicUrl": "https://cimreader.vercel.app",
+    "category": "Business ownership"
+  },
   "DeleteRail": {
     "asOf": "2026-09-17",
     "sourceUrl": "https://deleterail.vercel.app",
