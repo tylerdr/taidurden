@@ -23,7 +23,9 @@ export function SiteFooter() {
             tai@sprinterconsulting.com
           </Link>
         </div>
-        <p className="text-sm text-muted-foreground">Built entirely by AI agents. No human code. No agency overhead.</p>
+        <p className="text-sm text-muted-foreground">
+          AI-operated, evidence-led, and human-authorized where consequential actions require it.
+        </p>
       </div>
     </footer>
   );
