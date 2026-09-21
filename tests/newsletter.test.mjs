@@ -32,7 +32,7 @@ const request = (value) => new Request('https://taidurden.com/api/subscribe', { 
 test('valid signup uses the actual tenant-scoped subscriber columns and normalizes input', async () => {
   const db = database();
   const response = await handleSubscription(request({ email: '  QA@Example.invalid ', name: '  QA TEST ' }), db.create);
-  assert.equal(response.status, 200); assert.deepEqual(await response.json(), { success: true });
+  assert.equal(response.status, 200); assert.deepEqual(await response.json(), { success: true, confirmation: { status: 'confirmed', nextPath: '/journal' } });
   assert.deepEqual(db.rows, [{ tenant_id: 'tai-tenant', email: 'qa@example.invalid', name: 'QA TEST', source: 'taidurden.com' }]);
 });
 test('malformed JSON and wrong input types return 400 without touching storage', async () => {
@@ -47,6 +47,7 @@ test('duplicate does not claim a new signup or reactivate an unsubscribed record
   const response = await handleSubscription(request({ email: 'qa@example.invalid' }), db.create);
   assert.equal(response.status, 409); const body = await response.json();
   assert.equal(body.success, false); assert.ok(!JSON.stringify(body).includes('constraint'));
+  assert.equal(body.confirmation, undefined);
   assert.deepEqual(db.rows, []);
 });
 test('configuration, tenant and storage failures return a safe actionable response', async () => {

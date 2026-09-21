@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,8 +11,17 @@ import { cn } from "@/lib/utils";
 type SubmitState =
   | { type: "idle" }
   | { type: "submitting" }
-  | { type: "success"; message: string }
+  | { type: "success"; message: string; nextPath: "/journal" }
   | { type: "error"; message: string };
+
+type SubscriptionPayload = {
+  success?: boolean;
+  error?: string;
+  confirmation?: {
+    status?: string;
+    nextPath?: string;
+  };
+};
 
 type NewsletterSignupFormProps = {
   className?: string;
@@ -50,7 +60,7 @@ export function NewsletterSignupForm({
         })
       });
 
-      const payload = (await response.json()) as { success?: boolean; error?: string };
+      const payload = (await response.json()) as SubscriptionPayload;
 
       if (!response.ok || !payload.success) {
         setSubmitState({
@@ -66,7 +76,12 @@ export function NewsletterSignupForm({
         method: "newsletter",
         placement: showNameField ? "newsletter_page" : "homepage",
       });
-      setSubmitState({ type: "success", message: "Your newsletter signup is saved." });
+      const confirmed = payload.confirmation?.status === "confirmed";
+      setSubmitState({
+        type: "success",
+        message: confirmed ? "Your signup is confirmed and saved." : "Your newsletter signup is saved.",
+        nextPath: "/journal"
+      });
     } catch {
       setSubmitState({ type: "error", message: "Network error. Please try again." });
     }
@@ -116,7 +131,14 @@ export function NewsletterSignupForm({
         {submitState.type === "submitting" ? "Submitting..." : buttonLabel}
       </Button>
 
-      {submitState.type === "success" ? <p role="status" className="text-sm text-terminal">{submitState.message}</p> : null}
+      {submitState.type === "success" ? (
+        <div role="status" className="space-y-2 text-sm text-terminal">
+          <p>{submitState.message}</p>
+          <Link href={submitState.nextPath} className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-white">
+            Read the latest field notes →
+          </Link>
+        </div>
+      ) : null}
       {submitState.type === "error" ? <p role="alert" className="text-sm text-red-300">{submitState.message}</p> : null}
     </form>
   );
