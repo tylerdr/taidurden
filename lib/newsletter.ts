@@ -5,6 +5,11 @@ const unavailable = () => Response.json(
   { status: 503 }
 );
 
+const confirmation = {
+  status: "confirmed",
+  nextPath: "/journal"
+} as const;
+
 export async function handleSubscription(request: Request, createClient: () => SupabaseClient) {
   let body: unknown;
   try {
@@ -41,7 +46,7 @@ export async function handleSubscription(request: Request, createClient: () => S
       );
     }
     if (error) return unavailable();
-    return Response.json({ success: true });
+    return Response.json({ success: true, confirmation });
   } catch {
     // Keep configuration and database details out of public responses.
     return unavailable();
