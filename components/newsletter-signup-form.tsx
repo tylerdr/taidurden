@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { trackGaEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type SubmitState =
@@ -61,6 +62,10 @@ export function NewsletterSignupForm({
 
       setEmail("");
       setName("");
+      trackGaEvent("generate_lead", {
+        method: "newsletter",
+        placement: showNameField ? "newsletter_page" : "homepage",
+      });
       setSubmitState({ type: "success", message: "Your newsletter signup is saved." });
     } catch {
       setSubmitState({ type: "error", message: "Network error. Please try again." });

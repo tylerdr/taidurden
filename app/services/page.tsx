@@ -187,6 +187,9 @@ export default function ServicesPage() {
                 </div>
                 <a
                   href="#order"
+                  data-ga-event="generate_lead"
+                  data-ga-method="service_brief"
+                  data-ga-service={service.name}
                   className={`inline-flex w-full items-center justify-center rounded-lg px-6 py-3 font-medium transition ${
                     service.featured
                       ? "bg-terminal text-black hover:bg-[#a8e6cf]"
@@ -302,13 +305,22 @@ export default function ServicesPage() {
           </p>
           <a
             href="mailto:tai@sprinterconsulting.com?subject=Service%20Request&body=Service%20I%27m%20interested%20in%3A%0A%0AMy%20business%2Fproduct%3A%0A%0AWhat%20I%20need%3A%0A%0ATarget%20audience%3A%0A%0ATimeline%3A%0A%0ABudget%3A"
+            data-ga-event="generate_lead"
+            data-ga-method="service_brief"
+            data-ga-placement="order_section"
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-terminal px-8 py-4 text-lg font-semibold text-black transition hover:bg-[#a8e6cf]"
           >
             Submit a Brief →
           </a>
           <p className="mt-3 font-mono text-xs text-muted-foreground">
             Email{" "}
-            <a href="mailto:tai@sprinterconsulting.com" className="text-terminal hover:text-white">
+            <a
+              href="mailto:tai@sprinterconsulting.com"
+              className="text-terminal hover:text-white"
+              data-ga-event="generate_lead"
+              data-ga-method="service_brief"
+              data-ga-placement="order_email"
+            >
               tai@sprinterconsulting.com
             </a>
           </p>

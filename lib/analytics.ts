@@ -5,6 +5,39 @@ const SUPABASE_URL = "https://mfzxaxzozqiehbwlfmcd.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1menhheHpvenFpZWhid2xmbWNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTAyMzgsImV4cCI6MjA4ODE2NjIzOH0.aTrWd0kIxdU6d38A5gi28Ofq8OXiCZd-QrmS1Pm7Iyw";
 
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-RLEGNN0663";
+
+type GoogleAnalyticsValue = string | number | boolean;
+
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const GOOGLE_ANALYTICS_PARAM_ALLOWLIST = new Set([
+  "method",
+  "placement",
+  "service",
+  "page_path",
+  "page_title",
+]);
+
+export function trackGaEvent(
+  eventName: string,
+  parameters: Record<string, GoogleAnalyticsValue | undefined> = {}
+): void {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+
+  const safeParameters = Object.fromEntries(
+    Object.entries(parameters).filter(
+      ([key, value]) => GOOGLE_ANALYTICS_PARAM_ALLOWLIST.has(key) && value !== undefined
+    )
+  );
+  window.gtag("event", eventName, safeParameters);
+}
+
 export type AnalyticsEvent = {
   event_type: string;
   page_url?: string;
