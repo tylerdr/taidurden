@@ -19,7 +19,13 @@ export function SiteFooter() {
           <Link className="hover:text-terminal" href={siteConfig.github} target="_blank" rel="noreferrer">
             GitHub
           </Link>
-          <Link className="hover:text-terminal" href="mailto:tai@sprinterconsulting.com">
+          <Link
+            className="hover:text-terminal"
+            href="mailto:tai@sprinterconsulting.com"
+            data-ga-event="generate_lead"
+            data-ga-method="contact_email"
+            data-ga-placement="footer"
+          >
             tai@sprinterconsulting.com
           </Link>
         </div>
