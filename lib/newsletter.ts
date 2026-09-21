@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { enqueueNewsletterConfirmation } from "./newsletter-outbox.ts";
 
 const unavailable = () => Response.json(
   { success: false, error: "Signup is temporarily unavailable. Please try again later." },
@@ -36,17 +37,22 @@ export async function handleSubscription(request: Request, createClient: () => S
     if (tenantError || !tenant) return unavailable();
 
     // Match the existing subscribers schema; it has no metadata column.
-    const { error } = await supabase.from("subscribers").insert({
+    const { data: subscriber, error } = await supabase.from("subscribers").insert({
       tenant_id: tenant.id, email, name: name || null, source: "taidurden.com"
-    });
+    }).select("id").single();
     if (error?.code === "23505") {
       return Response.json(
         { success: false, error: "This email already has a subscription. Contact tai@sprinterconsulting.com to manage it." },
         { status: 409 }
       );
     }
-    if (error) return unavailable();
-    return Response.json({ success: true, confirmation });
+    if (error || !subscriber?.id) return unavailable();
+    const emailDelivery = await enqueueNewsletterConfirmation(supabase, {
+      tenantId: tenant.id,
+      subscriberId: subscriber.id,
+      email
+    });
+    return Response.json({ success: true, confirmation, emailDelivery: { status: emailDelivery.status } });
   } catch {
     // Keep configuration and database details out of public responses.
     return unavailable();
