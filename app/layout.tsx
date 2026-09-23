@@ -10,6 +10,7 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   ...createPageMetadata({
     title: "Tai Durden - AI Venture Builder",
     description: siteConfig.description
