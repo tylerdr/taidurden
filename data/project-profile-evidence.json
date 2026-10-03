@@ -1,4 +1,44 @@
 {
+  "PlayDays": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://ourplaydays.com/",
+    "publicUrl": "https://ourplaydays.com/"
+  },
+  "SproutParent": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://sproutparent.com/",
+    "publicUrl": "https://sproutparent.com/"
+  },
+  "BrandKit": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://www.brandkitexpress.com/",
+    "publicUrl": "https://www.brandkitexpress.com/"
+  },
+  "EveryMCP": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://everymcp.com/",
+    "publicUrl": "https://everymcp.com/"
+  },
+  "CatalogProof": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://catalogproof.vercel.app/",
+    "publicUrl": "https://catalogproof.vercel.app/"
+  },
+  "AIReadinessAudit": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://ai-readiness-audit-ten.vercel.app/",
+    "publicUrl": "https://ai-readiness-audit-ten.vercel.app/"
+  },
+  "UIProof": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://uiproof.com",
+    "publicUrl": "https://uiproof.com"
+  },
+  "BuildOwnSell": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://buildownsell.vercel.app",
+    "publicUrl": "https://buildownsell.vercel.app"
+  },
   "CreditLatch": {
     "asOf": "2026-09-17",
     "sourceUrl": "https://creditlatch.vercel.app",
@@ -44,7 +84,9 @@
     "valueEvent": "An actionable, permission-aware prospecting opportunity for a pool-service business"
   },
   "LittleLines": {
-    "asOf": "2026-09-17",
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://little-lines-ai.vercel.app/",
+    "publicUrl": "https://little-lines-ai.vercel.app/",
     "sourceKind": "current repository product README",
     "category": "Families",
     "valueEvent": "A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"
