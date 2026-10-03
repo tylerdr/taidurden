@@ -1,4 +1,24 @@
 {
+  "BrandKit": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://www.brandkitexpress.com/",
+    "publicUrl": "https://www.brandkitexpress.com/"
+  },
+  "EveryMCP": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://everymcp.com/",
+    "publicUrl": "https://everymcp.com/"
+  },
+  "CatalogProof": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://catalogproof.vercel.app/",
+    "publicUrl": "https://catalogproof.vercel.app/"
+  },
+  "AIReadinessAudit": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://ai-readiness-audit-ten.vercel.app/",
+    "publicUrl": "https://ai-readiness-audit-ten.vercel.app/"
+  },
   "UIProof": {
     "asOf": "2026-10-03",
     "sourceUrl": "https://uiproof.com",
