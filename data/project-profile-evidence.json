@@ -1,4 +1,14 @@
 {
+  "PlayDays": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://ourplaydays.com/",
+    "publicUrl": "https://ourplaydays.com/"
+  },
+  "SproutParent": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://sproutparent.com/",
+    "publicUrl": "https://sproutparent.com/"
+  },
   "BrandKit": {
     "asOf": "2026-10-03",
     "sourceUrl": "https://www.brandkitexpress.com/",
@@ -74,7 +84,9 @@
     "valueEvent": "An actionable, permission-aware prospecting opportunity for a pool-service business"
   },
   "LittleLines": {
-    "asOf": "2026-09-17",
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://little-lines-ai.vercel.app/",
+    "publicUrl": "https://little-lines-ai.vercel.app/",
     "sourceKind": "current repository product README",
     "category": "Families",
     "valueEvent": "A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"
