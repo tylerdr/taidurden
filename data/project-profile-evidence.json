@@ -1,4 +1,14 @@
 {
+  "UIProof": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://uiproof.com",
+    "publicUrl": "https://uiproof.com"
+  },
+  "BuildOwnSell": {
+    "asOf": "2026-10-03",
+    "sourceUrl": "https://buildownsell.vercel.app",
+    "publicUrl": "https://buildownsell.vercel.app"
+  },
   "CreditLatch": {
     "asOf": "2026-09-17",
     "sourceUrl": "https://creditlatch.vercel.app",
