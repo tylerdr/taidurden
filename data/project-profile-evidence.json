@@ -20,7 +20,7 @@
     "publicUrl": "https://everymcp.com/"
   },
   "CatalogProof": {
-    "asOf": "2026-10-03",
+    "asOf": "2026-10-04",
     "sourceUrl": "https://catalogproof.vercel.app/",
     "publicUrl": "https://catalogproof.vercel.app/"
   },
@@ -90,5 +90,15 @@
     "sourceKind": "current repository product README",
     "category": "Families",
     "valueEvent": "A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"
+  },
+  "LittleAcreLab": {
+    "asOf": "2026-10-04",
+    "sourceUrl": "https://littlefarmlab.com",
+    "publicUrl": "https://littlefarmlab.com"
+  },
+  "Shreddify": {
+    "asOf": "2026-10-04",
+    "sourceUrl": "https://shreddify.com",
+    "publicUrl": "https://shreddify.com"
   }
 }
