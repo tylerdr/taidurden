@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('data/portfolio.json'));
-test('all 32 Tai product entries present',()=>assert.equal(data.entries.length,32));
+test('all 39 Tai product entries present',()=>assert.equal(data.entries.length,39));
 test('unique safe routes',()=>{const s=data.entries.map(e=>e.slug);assert.equal(new Set(s).size,s.length);assert.ok(s.every(x=>/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(x)));});
 test('legacy product routes retained',()=>{for(const s of ['peakedlabs','protocolrank','shreddify','ai-business-blueprint','alivelongevity','ohio-power-picker','getfoundinchat','ogfixer','aiopsguide','winemakeros','hireagentbuilders','portcoaudit'])assert.ok(data.entries.some(e=>e.slug===s));});
 test('only Tai operating responsibility appears as a project',()=>assert.ok(data.entries.every(e=>e.mode==='agent-led')));

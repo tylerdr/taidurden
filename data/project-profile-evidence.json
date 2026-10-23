@@ -90,5 +90,83 @@
     "sourceKind": "current repository product README",
     "category": "Families",
     "valueEvent": "A drawing preserved with its context and a helpful, non-diagnostic prompt for the parent"
+  },
+  "ScopeYourSaaS": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://scopeyoursaas.com",
+    "publicUrl": "https://scopeyoursaas.com",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Free browser-local planner; paid offline kit coming soon",
+    "verificationLimits": [
+      "No account or server saving; reload loses unexported state",
+      "Not AI generation, market research or source verification",
+      "Not technical architecture, a delivery commitment or a cost estimate"
+    ]
+  },
+  "RecoveryWellnessLongevity": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://recoverywellnesslongevity.com",
+    "publicUrl": "https://recoverywellnesslongevity.com",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Public project listed by Studio; direct runtime and commercial status not verified in this pass",
+    "verificationLimits": [
+      "Do not imply clinical benefits, financial returns, verified capture or paid delivery"
+    ]
+  },
+  "ClosePilotSOP": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://closepilot-sop.vercel.app",
+    "publicUrl": "https://closepilot-sop.vercel.app",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Prototype and kit prepared; paid checkout disabled",
+    "verificationLimits": [
+      "Not a hosted SOP service or accounting integration",
+      "Demo data is synthetic and browser-local"
+    ]
+  },
+  "AdsInChat": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://adsinchat.com",
+    "publicUrl": "https://adsinchat.com",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Storefront deployed; paid checkout disabled",
+    "verificationLimits": [
+      "Rules-based templates, not model generation or ad management",
+      "No platform eligibility, ad outcome, customer result or revenue claim",
+      "Tagged URLs do not install analytics"
+    ]
+  },
+  "CloseKit": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://closekit.buildownsell.com",
+    "publicUrl": "https://closekit.buildownsell.com",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Storefront deployed; paid checkout disabled",
+    "verificationLimits": [
+      "Not accounting advice, assurance or live accounting integration",
+      "Not SOP app access"
+    ]
+  },
+  "SurveyClose": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://surveyclose.com",
+    "publicUrl": "https://surveyclose.com",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Public site deployed; paid checkout unavailable",
+    "verificationLimits": [
+      "No AI inference, survey collection or hosted collaboration",
+      "Unsaved browser-tab work is lost on reload"
+    ]
+  },
+  "HybridMarks": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://hybrid-marks-sprinter.vercel.app/marks",
+    "publicUrl": "https://hybrid-marks-sprinter.vercel.app/marks",
+    "sourceKind": "User-authorized portfolio reconciliation; evidence and limits in docs/revenue-verification/2026-10-23-RECENT-LISTINGS.md",
+    "commercialStatus": "Live prototype; custom domain and current paid offer unresolved",
+    "verificationLimits": [
+      "Do not promote the historical USD19 field kit as the new benchmark offer",
+      "Do not promise training or health outcomes"
+    ]
   }
 }
