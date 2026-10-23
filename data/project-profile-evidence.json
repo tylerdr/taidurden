@@ -168,5 +168,21 @@
       "Do not promote the historical USD19 field kit as the new benchmark offer",
       "Do not promise training or health outcomes"
     ]
+  },
+  "SpecSprint": {
+    "asOf": "2026-10-23",
+    "sourceUrl": "https://specsprint.ai/",
+    "publicUrl": "https://specsprint.ai",
+    "sourceKind": "Current deployed homepage source; route provenance in docs/revenue-verification/2026-10-23-SPECSPRINT-LISTING.md",
+    "sourceCommit": "0f6ea6e0c86e4cc0624e60372dc5f4657460a8c0",
+    "sourcePath": "apps/specsprint/industrial.ts",
+    "commercialStatus": "Human-reviewed industrial pilot; scope, price and delivery agreed before work begins",
+    "verificationLimits": [
+      "Public sample records are fictional",
+      "No online upload or automatic extraction on the page",
+      "Engineering design, CAD reconstruction, automatic quoting and compliance certification require separate scope",
+      "Separate skincare kit remains at /packaging/; its license is not the industrial pilot price"
+    ],
+    "valueEvent": "A human-reviewed equipment catalog whose approved attributes trace to the correct source file, revision and page"
   }
 }
